@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:badges/badges.dart" as badges;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,13 +10,308 @@ class HomeScreen extends StatelessWidget {
     double width = size.width;
     double height = size.height;
 
-
     return Scaffold(
       body: Container(
-        width: width,
-        height: height/3,
+        color: Colors.black12.withValues(alpha: 0.01),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: width,
+                height: height / 3.3,
+                padding: EdgeInsets.only(bottom: 9),
+                decoration: BoxDecoration(color: Colors.green),
+                child: Column(
+                  spacing: 22,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Travel Guide",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 33,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "What are you looking for?",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      width: width / 1.1,
+                      padding: EdgeInsets.symmetric(horizontal: 7),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(11),
+                      ),
+                      child: Row(
+                        children: [
+                          Container(width: 66, child: Text("search")),
+                          Expanded(
+                            child: TextFormField(
+                              enabled: false,
+                              decoration: InputDecoration(
+                                labelText: "Enter your keywords",
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 9),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 11),
+                      child: Text.rich(
+                        TextSpan(
+                          style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 33,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          children: [
+                            TextSpan(text: "Best Places To\n"),
+                            TextSpan(text: "Travel In December"),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    bookingCard(size),
+
+                    SizedBox(height: 22,),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Your onPressed action here
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,       // Button background
+                              foregroundColor: Colors.white,       // Text/Icon color
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(11), // Rounded corners
+                              ),
+                              padding: EdgeInsets.symmetric(vertical: 14), // Optional: taller button
+                            ),
+                            child: Text(
+                              "Discover More",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 22,),
+
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                             padding: EdgeInsets.all(7),
+                              child: Text("EDITORS PICKS"),
+                          ),
+                          picksCard()
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
+
+  Widget bookingCard(Size size) {
+    double width = size.width;
+
+    return badges.Badge(
+      position: badges.BadgePosition.topEnd(top: -22, end: 15),
+      showBadge: true,
+      ignorePointer: false,
+      onTap: () {},
+      badgeContent: Icon(Icons.flash_on, color: Colors.white, size: 33),
+      badgeStyle: badges.BadgeStyle(
+        shape: badges.BadgeShape.square,
+        badgeColor: Colors.red,
+        borderRadius: BorderRadius.circular(100),
+        elevation: 0,
+      ),
+      child: Container(
+        width: width - 22,
+        height: width / 2,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(11),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 6,
+              offset: Offset(0, 3),
+            )
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+
+            Container(
+              margin: EdgeInsets.all(12),
+              alignment: Alignment.centerLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 5,
+                children: [
+                  Text(
+                    "Booking Available",
+                    style: TextStyle(
+                      color: Colors.lightGreen,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  SizedBox(height: 6),
+                  Text(
+                    "Ocean Breeze",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    "Hawaii",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+
+            Container(
+              height: 66,
+              child: Row(
+                children: [
+                  Container(
+                    width: (width - 22) * 0.25,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                    color: Colors.black87,
+                        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(11))
+                    ),
+                    child: Text(
+                      "4.8",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+
+                  // Stars + Reviews
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+
+                      decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                          borderRadius: BorderRadius.only(bottomRight: Radius.circular(11))
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: List.generate(4, (index) =>
+                                Icon(Icons.star, size: 16, color: Colors.white)),
+                          ),
+                          SizedBox(height: 4),
+                          Text(
+                            "(512 Reviews)",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget picksCard() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(5, (index) {
+          return Container(
+            width: 166,
+            height: 333,
+            margin: EdgeInsets.symmetric(horizontal: 5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(11),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.transparent,
+                  Colors.greenAccent
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              image: DecorationImage(
+                image: AssetImage("assets/house/placeholder.png"), // make sure this path exists
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.3), BlendMode.darken),
+              ),
+            ),
+            alignment: Alignment.bottomLeft,
+            padding: EdgeInsets.all(12),
+            child: Text(
+              "Phuly Bay",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+
+
 }
