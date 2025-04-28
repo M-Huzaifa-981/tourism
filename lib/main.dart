@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tourism/screens/feed_screen.dart';
+import 'package:tourism/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: null,
+      debugShowCheckedModeBanner: false,
+      home: FeedScreen(),
     );
   }
 }

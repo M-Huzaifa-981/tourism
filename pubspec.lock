@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.12.0"
+  badges:
+    dependency: "direct main"
+    description:
+      name: badges
+      sha256: a7b6bbd60dce418df0db3058b53f9d083c22cdb5132a052145dc267494df0b84
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.2"
   boolean_selector:
     dependency: transitive
     description:
@@ -75,6 +83,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  image_stack:
+    dependency: "direct main"
+    description:
+      name: image_stack
+      sha256: a41c2b14779d0c70652eade36eb7353b7bdcd14ca6657177ee83673398b1bef0
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   leak_tracker:
     dependency: transitive
     description:

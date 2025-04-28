@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:badges/badges.dart" as badges;
+import 'package:tourism/screens/tabbar_screens/first_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -97,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-                              // Your onPressed action here
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> FirstScreen()));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,       // Button background
@@ -129,7 +130,9 @@ class HomeScreen extends StatelessWidget {
                           picksCard()
                         ],
                       ),
-                    )
+                    ),
+
+                    SizedBox(height: 22,),
 
                   ],
                 ),
@@ -143,7 +146,6 @@ class HomeScreen extends StatelessWidget {
 
   Widget bookingCard(Size size) {
     double width = size.width;
-
     return badges.Badge(
       position: badges.BadgePosition.topEnd(top: -22, end: 15),
       showBadge: true,
@@ -277,34 +279,37 @@ class HomeScreen extends StatelessWidget {
       child: Row(
         children: List.generate(5, (index) {
           return Container(
-            width: 166,
-            height: 333,
+            width: 155,
+            height: 255,
             margin: EdgeInsets.symmetric(horizontal: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(11),
-              gradient: LinearGradient(
-                colors: [
-                  Colors.transparent,
-                  Colors.greenAccent
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
               image: DecorationImage(
-                image: AssetImage("assets/house/placeholder.png"), // make sure this path exists
+                image: AssetImage("assets/houses/boat.jpg"),
                 fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.3), BlendMode.darken),
               ),
             ),
-            alignment: Alignment.bottomLeft,
-            padding: EdgeInsets.all(12),
-            child: Text(
-              "Phuly Bay",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(11),
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.transparent,
+                    Colors.green.withOpacity(0.9)
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              padding: EdgeInsets.all(12),
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                "Phuly Bay",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           );
@@ -312,6 +317,7 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
 
 
 }
