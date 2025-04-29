@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import "package:badges/badges.dart" as badges;
 import 'package:tourism/screens/feed_screen.dart';
 import 'package:tourism/screens/tabbar_screens/first_screen.dart';
+import '../utils/customWidgets/imageCard.dart';
+import 'discover_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -112,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> FeedScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> DiscoverScreen()));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,       // Button background
@@ -133,36 +135,56 @@ class HomeScreen extends StatelessWidget {
 
                     SizedBox(height: 22,),
 
+
                     Container(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                             padding: EdgeInsets.all(7),
-                              child: Text("EDITORS PICKS",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      Container(
+                               padding: EdgeInsets.all(7),
+                                child: Text("EDITORS PICKS",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
+                            ),
+
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: List.generate(7, (index) {
+                                return Container(
+                                  margin: EdgeInsets.all(5),
+                                  child: imageCard(
+                                    size: Size(155, 233),
+                                    image: "assets/images${index}.jpg",
+                                    title: "EDITORS PICKS",
+                                    subTitle: "",
+                                    titleSize: 11,
+                                    subTitleSize: 11,
+                                    linearGradient: LinearGradient(
+                                      colors: [
+                                        Colors.transparent,
+                                        Colors.green.withOpacity(0.9)
+                                      ],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    ),
+                                    borderRadius: 11,
+                                  ),
+                                );
+                              }
                               ),
-                          ),
-                          imageCard(
-                              Size(155, 233),
-                              "assets/houses/boat.jpg",
-                              LinearGradient(
-                                colors: [
-                                  Colors.transparent,
-                                  Colors.green.withOpacity(0.9)
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              ),
-                              11
+                            ),
                           ),
                         ],
                       ),
                     ),
+
+
+
 
                     SizedBox(height: 33,),
                     Divider(height: 2,),
@@ -180,7 +202,8 @@ class HomeScreen extends StatelessWidget {
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              )),
+                              ),
+                          ),
                           nearRestCard(size),
                         ],
                       ),
@@ -205,19 +228,37 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          imageCard(
-                            Size(155, 155),
-                            "assets/mountains/snakepole.jpg",
-                            LinearGradient(
-                                colors: [
-                                  Colors.transparent,
-                                  Colors.green.withOpacity(0.9)
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              ),
-                            11
+
+
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children:  List.generate(5, (index) {
+                                return Container(
+                                  margin: EdgeInsets.all(5),
+                                  child: imageCard(
+                                    size: Size(155, 155),
+                                    image: "assets/images${index}.jpg",
+                                    title: "AUTHOR'S CHOICE MONTHLY",
+                                    subTitle: "",
+                                    titleSize: 11,
+                                    subTitleSize: 11,
+                                    linearGradient: LinearGradient(
+                                      colors: [Colors.transparent,
+                                        Colors.green.withOpacity(0.9)],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    ),
+                                    borderRadius: 11,
+                                  ),
+                                );
+                              }
+                            ),
                           ),
+                          ),
+
+
+
                         ],
                       ),
                     ),
@@ -424,65 +465,65 @@ class HomeScreen extends StatelessWidget {
   }
 
 
-  Widget imageCard(Size size, String image, LinearGradient linearGradient, double radius){
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(5, (index) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: size.width,// 155,
-                height: size.height, // 155,
-                margin: EdgeInsets.symmetric(horizontal: 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(radius),
-                  image: DecorationImage(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(radius),
-                    gradient: linearGradient
-                  ),
-                  padding: EdgeInsets.all(12),
-                  alignment: Alignment.bottomLeft,
-                  child: Text(
-                    "Phuly Bay",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 7),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: List.generate(4, (index)=> Icon(Icons.star, color: CupertinoColors.systemYellow)),
-                    ),
-
-                    Text("4.8 (512 Reviews", style: TextStyle(color: CupertinoColors.systemYellow),),
-                    Text("Hawaii",  style: TextStyle(color: CupertinoColors.black),),
-
-                  ],
-                ),
-              )
-
-            ],
-          );
-        }),
-      ),
-    );
-  }
+  // Widget imageCard(Size size, String image, LinearGradient linearGradient, double radius){
+  //   return SingleChildScrollView(
+  //     scrollDirection: Axis.horizontal,
+  //     child: Row(
+  //       children: List.generate(5, (index) {
+  //         return Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Container(
+  //               width: size.width,// 155,
+  //               height: size.height, // 155,
+  //               margin: EdgeInsets.symmetric(horizontal: 5),
+  //               decoration: BoxDecoration(
+  //                 borderRadius: BorderRadius.circular(radius),
+  //                 image: DecorationImage(
+  //                   image: AssetImage(image),
+  //                   fit: BoxFit.cover,
+  //                 ),
+  //               ),
+  //               child: Container(
+  //                 decoration: BoxDecoration(
+  //                   borderRadius: BorderRadius.circular(radius),
+  //                   gradient: linearGradient
+  //                 ),
+  //                 padding: EdgeInsets.all(12),
+  //                 alignment: Alignment.bottomLeft,
+  //                 child: Text(
+  //                   "Phuly Bay",
+  //                   style: TextStyle(
+  //                     color: Colors.white,
+  //                     fontSize: 20,
+  //                     fontWeight: FontWeight.bold,
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //
+  //             Container(
+  //               padding: EdgeInsets.symmetric(horizontal: 7),
+  //               child: Column(
+  //                 crossAxisAlignment: CrossAxisAlignment.start,
+  //                 children: [
+  //                   Row(
+  //                     children: List.generate(4, (index)=> Icon(Icons.star, color: CupertinoColors.systemYellow)),
+  //                   ),
+  //
+  //                   Text("4.8 (512 Reviews", style: TextStyle(color: CupertinoColors.systemYellow),),
+  //                   Text("Hawaii",  style: TextStyle(color: CupertinoColors.black),),
+  //
+  //                 ],
+  //               ),
+  //             )
+  //
+  //           ],
+  //         );
+  //       }),
+  //     ),
+  //   );
+  // }
 
 
 }
