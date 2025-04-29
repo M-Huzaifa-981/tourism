@@ -6,5 +6,6 @@ class Assets {
   static const String housesBoat = 'assets/houses/boat.jpg';
   static const String mountainsNature = 'assets/mountains/nature.jpg';
   static const String mountainsSnakepole = 'assets/mountains/snakepole.jpg';
+  static const String resortPic1 = 'assets/mountains/snakepole.jpg';
 
 }
