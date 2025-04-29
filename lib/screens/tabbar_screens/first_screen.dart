@@ -8,20 +8,10 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0XFF13a682),
-<<<<<<< HEAD
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-      ),
       body: Column(
         spacing: 6,
         children: [
           // Text('data'),
-=======
-      body: Column(
-        spacing: 6,
-        children: [
-          Text('data'),
->>>>>>> 2f39aadfc499f7918ac3f75011259c7de3cc8348
           Container(
             height: 670,
             decoration: BoxDecoration(

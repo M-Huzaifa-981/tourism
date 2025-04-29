@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:badges/badges.dart" as badges;
+import 'package:tourism/screens/feed_screen.dart';
 import 'package:tourism/screens/tabbar_screens/first_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               Container(
                 width: width,
-                height: height / 3.3,
+                height: height / 3.5,
                 padding: EdgeInsets.only(bottom: 9),
                 decoration: BoxDecoration(color: Colors.green),
                 child: Column(
@@ -51,15 +53,27 @@ class HomeScreen extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Container(width: 66, child: Text("search")),
                           Expanded(
                             child: TextFormField(
-                              enabled: false,
                               decoration: InputDecoration(
                                 labelText: "Enter your keywords",
+                                border: InputBorder.none
                               ),
                             ),
                           ),
+
+                          InkWell(
+                            onTap: (){
+                              FocusScope.of(context).unfocus();
+                            },
+                            child: Container(
+                              width: 66,
+                              // height: 55,
+                              // color: Colors.green,
+                              child: Icon(Icons.search),
+                            ),
+                          ),
+
                         ],
                       ),
                     ),
@@ -98,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> FirstScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> FeedScreen()));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,       // Button background
@@ -125,14 +139,93 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Container(
                              padding: EdgeInsets.all(7),
-                              child: Text("EDITORS PICKS"),
+                              child: Text("EDITORS PICKS",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                           ),
-                          picksCard()
+                          imageCard(
+                              Size(155, 233),
+                              "assets/houses/boat.jpg",
+                              LinearGradient(
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.green.withOpacity(0.9)
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                              11
+                          ),
                         ],
                       ),
                     ),
 
-                    SizedBox(height: 22,),
+                    SizedBox(height: 33,),
+                    Divider(height: 2,),
+                    SizedBox(height: 33,),
+                    
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(5) ,
+                              child: Text("DISCOVER RISTURENTS NEAR YOU",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                          nearRestCard(size),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 33,),
+                    Divider(height: 2,),
+                    SizedBox(height: 33,),
+
+
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(7),
+                            child: Text("AUTHOR'S CHOICE MONTHLY",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          imageCard(
+                            Size(155, 155),
+                            "assets/mountains/snakepole.jpg",
+                            LinearGradient(
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.green.withOpacity(0.9)
+                                ],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
+                            11
+                          ),
+                        ],
+                      ),
+                    ),
+
+
+                    SizedBox(height: 55,),
+
+
 
                   ],
                 ),
@@ -273,51 +366,123 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget picksCard() {
+
+  Widget nearRestCard(Size size){
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(5, (index){
+          return Card(
+            child: Container(
+              padding: EdgeInsets.all(5),
+              width: size.width/1.5,
+              height: size.width/1.5,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(11)
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/mountains/nature.jpg"),
+                                fit : BoxFit.cover
+                            )
+                        ),
+                      )
+                  ),
+            
+            
+                  Expanded(
+                      child: Container(
+                        padding: EdgeInsets.all(7),
+                        child: Column(
+                          spacing: 5,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("The Ledbury"),
+                            Text("127 Ledbury Road, London W11 2AQ"),
+                            Divider(height: 2,),
+                            Text("There are more than 25k people"),
+                            Text("recommend this.")
+                          ],
+                        ),
+                      )
+                  )
+                ],
+              ),
+            ),
+          );
+        }
+        )
+      ),
+    );
+  }
+
+
+  Widget imageCard(Size size, String image, LinearGradient linearGradient, double radius){
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: List.generate(5, (index) {
-          return Container(
-            width: 155,
-            height: 255,
-            margin: EdgeInsets.symmetric(horizontal: 5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(11),
-              image: DecorationImage(
-                image: AssetImage("assets/houses/boat.jpg"),
-                fit: BoxFit.cover,
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: size.width,// 155,
+                height: size.height, // 155,
+                margin: EdgeInsets.symmetric(horizontal: 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(radius),
+                  image: DecorationImage(
+                    image: AssetImage(image),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(radius),
+                    gradient: linearGradient
+                  ),
+                  padding: EdgeInsets.all(12),
+                  alignment: Alignment.bottomLeft,
+                  child: Text(
+                    "Phuly Bay",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
               ),
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(11),
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.transparent,
-                    Colors.green.withOpacity(0.9)
+
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 7),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: List.generate(4, (index)=> Icon(Icons.star, color: CupertinoColors.systemYellow)),
+                    ),
+
+                    Text("4.8 (512 Reviews", style: TextStyle(color: CupertinoColors.systemYellow),),
+                    Text("Hawaii",  style: TextStyle(color: CupertinoColors.black),),
+
                   ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
                 ),
-              ),
-              padding: EdgeInsets.all(12),
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                "Phuly Bay",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+              )
+
+            ],
           );
         }),
       ),
     );
   }
-
 
 
 }
