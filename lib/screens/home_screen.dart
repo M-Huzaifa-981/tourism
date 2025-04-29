@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:badges/badges.dart" as badges;
 import '../utils/customWidgets/imageCard.dart';
-import '../widgets/booking_card.dart';
+import '../utils/customWidgets/booking_card.dart';
 import 'discover_screen.dart';
 
 class HomeScreen extends StatelessWidget {

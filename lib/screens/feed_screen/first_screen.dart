@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/feed_card.dart';
+import '../../utils/customWidgets/feed_card.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
