@@ -8,8 +8,9 @@ class FeedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: 0,
+      spacing: 7,
       children: [
+        // SizedBox(height: 10,),
         Text(
           '#food #restaurant #guests #tour',
           style: TextStyle(
@@ -19,7 +20,7 @@ class FeedCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: 670,
+          height: MediaQuery.of(context).size.height*0.68,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -93,7 +94,7 @@ class FeedCard extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 15,)
+        SizedBox(height: 10,)
       ],
     );
   }

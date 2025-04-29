@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:badges/badges.dart" as badges;
-import 'package:tourism/screens/feed_screen.dart';
-import 'package:tourism/screens/tabbar_screens/first_screen.dart';
 import '../utils/customWidgets/imageCard.dart';
 import 'discover_screen.dart';
 
