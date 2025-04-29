@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tourism/screens/tabbar_screens/first_screen.dart';
-import 'package:tourism/screens/tabbar_screens/fourth_screen.dart';
-import 'package:tourism/screens/tabbar_screens/second_screen.dart';
-import 'package:tourism/screens/tabbar_screens/third_screen.dart';
+
+import 'feed_screen/first_screen.dart';
+import 'feed_screen/fourth_screen.dart';
+import 'feed_screen/second_screen.dart';
+import 'feed_screen/third_screen.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({super.key});
@@ -12,7 +13,7 @@ class FeedScreen extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: Color(0XFF13a682),
+        backgroundColor: Color(0XFF17c69b),
         appBar: AppBar(
           backgroundColor: Color(0XFF39c8a5),
           centerTitle: true,
@@ -45,7 +46,7 @@ class FeedScreen extends StatelessWidget {
                   horizontal: 15,
                   vertical: 10,
                 ),
-                unselectedLabelColor: Color(0XFF39c8a5),
+                unselectedLabelColor: Colors.white54,
                 tabAlignment: TabAlignment.start,
                 isScrollable: true,
                 labelStyle: TextStyle(
