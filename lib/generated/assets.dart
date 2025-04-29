@@ -2,10 +2,11 @@
 class Assets {
   Assets._();
 
-  static const String assetsPic1 = 'assets/pic1.jpeg';
-  static const String housesBoat = 'assets/houses/boat.jpg';
-  static const String mountainsNature = 'assets/mountains/nature.jpg';
-  static const String mountainsSnakepole = 'assets/mountains/snakepole.jpg';
-  static const String resortPic1 = 'assets/mountains/snakepole.jpg';
+  static const String assetsPic1 = 'assets/images/img1.jpg';
+  static const String resortPic1 = 'assets/images/img8.png';
+  // static const String housesBoat = 'assets/houses/boat.jpg';
+  // static const String mountainsNature = 'assets/mountains/nature.jpg';
+  // static const String mountainsSnakepole = 'assets/mountains/snakepole.jpg';
+  // static const String resortPic1 = 'assets/mountains/snakepole.jpg';
 
 }
