@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tourism/screens/tabbar_screens/first_screen.dart';
-import 'package:tourism/screens/tabbar_screens/fourth_screen.dart';
-import 'package:tourism/screens/tabbar_screens/second_screen.dart';
-import 'package:tourism/screens/tabbar_screens/third_screen.dart';
+import 'package:tourism/screens/feed_screen/second_screen.dart';
+import 'package:tourism/screens/feed_screen/third_screen.dart';
+
+import 'first_screen.dart';
+import 'fourth_screen.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({super.key});

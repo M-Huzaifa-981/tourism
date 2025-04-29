@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tourism/screens/feed_screen.dart';
+import 'package:tourism/screens/feed_screen/feed_screen.dart';
 
 void main() {
   runApp(const MyApp());
