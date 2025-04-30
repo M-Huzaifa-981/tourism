@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tourism/screens/feed_screen.dart';
-import 'package:tourism/screens/home_screen.dart';
+import 'package:tourism/screens/trending_resorts/trending_resorts_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: HomeScreen(),
       home: DefaultTabController(
-          length: 4,
-      child: HomeScreen()
+        length: 4,
+        child: TrendingResortsScreen(),
+        // child: HomeScreen()
       ),
     );
   }

@@ -2,8 +2,11 @@
 class Assets {
   Assets._();
 
-  static const String imagesImg0 = 'assets/images/img0.jpg';
-  static const String imagesImg2 = 'assets/images/img2.jpg';
-  static const String imagesImg4 = 'assets/images/img4.jpg';
+  static const String assetsPic1 = 'assets/images/img1.jpg';
+  static const String resortPic1 = 'assets/images/img8.png';
+  // static const String housesBoat = 'assets/houses/boat.jpg';
+  // static const String mountainsNature = 'assets/mountains/nature.jpg';
+  // static const String mountainsSnakepole = 'assets/mountains/snakepole.jpg';
+  // static const String resortPic1 = 'assets/mountains/snakepole.jpg';
 
 }
