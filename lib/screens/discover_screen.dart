@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/customWidgets/imageCard.dart';
+import '../models/imageCardInfo.dart';
+import '../utils/customWidgets/imageInfoCard.dart';
 
 class DiscoverScreen extends StatelessWidget {
   DiscoverScreen({super.key});
+  static final String imagePath = "assets/images";
 
   final List<String> titles = [
     "Society",
@@ -16,16 +18,7 @@ class DiscoverScreen extends StatelessWidget {
     "Entertainments",
     "Food",
   ];
-  final List<String> images = [
-    "assets/mountains/nature.jpg",
-    "assets/mountains/snakepole.jpg",
-    "assets/mountains/snow.jpg",
-    "assets/houses/boat.jpg",
-    "assets/mountains/nature.jpg",
-    "assets/mountains/snakepole.jpg",
-    "assets/mountains/snow.jpg",
-    "assets/mountains/nature.jpg",
-  ];
+
 
   final List<Color> colors = [
     Colors.red,
@@ -37,6 +30,7 @@ class DiscoverScreen extends StatelessWidget {
     Colors.cyan,
     CupertinoColors.systemGreen,
   ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,20 +54,24 @@ class DiscoverScreen extends StatelessWidget {
         child: ListView.builder(
           itemCount: titles.length,
           itemBuilder: (BuildContext context, int index) {
+            final cardData = ImageCardInfo(
+              image: "$imagePath/img$index.jpg",
+              title: titles[index],
+              subtitle: "Explore New ${titles[index]}",
+            );
             return Container(
-              child: imageCard(
-                size: Size(width, height / 4.3),
-                image: images[index],
-                title: titles[index],
-                subTitle: "Explore ${titles[index]}",
+              child: imageInfoCard(
+                imageCardInfo: cardData,
                 titleSize: 44,
                 subTitleSize: 12,
+                imageSize: Size(width, height / 4.3),
                 linearGradient: LinearGradient(
                   colors: [colors[index].withOpacity(0.1), colors[index].withOpacity(0.9)],
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   transform: GradientRotation(45),
                 ),
+                isShowCardInfo: false,
                 borderRadius: 0,
               ),
             );
