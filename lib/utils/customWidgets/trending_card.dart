@@ -11,7 +11,7 @@ class TrendingCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       // margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.1),
-      height: MediaQuery.of(context).size.height*0.86,
+      height: MediaQuery.of(context).size.height * 0.86,
       decoration: BoxDecoration(),
       child: Material(
         elevation: 50,
@@ -24,7 +24,7 @@ class TrendingCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image(
-                  image: AssetImage(Assets.resortPic1),
+                  image: AssetImage(Assets.resortPic8),
                   height: 700,
                   fit: BoxFit.cover,
                 ),
@@ -66,11 +66,11 @@ class TrendingCard extends StatelessWidget {
               left: 15,
               child: Row(
                 children: [
-                  Icon(Icons.star, color: Colors.yellow,),
-                  Icon(Icons.star, color: Colors.yellow,),
-                  Icon(Icons.star, color: Colors.yellow,),
-                  Icon(Icons.star, color: Colors.yellow,),
-                  Icon(Icons.star, color: Colors.yellow,),
+                  Icon(Icons.star, color: Colors.yellow),
+                  Icon(Icons.star, color: Colors.yellow),
+                  Icon(Icons.star, color: Colors.yellow),
+                  Icon(Icons.star, color: Colors.yellow),
+                  Icon(Icons.star, color: Colors.yellow),
                   SizedBox(width: 10),
                   Text(
                     '4.2 (313 Reviews)',
@@ -110,7 +110,7 @@ class TrendingCard extends StatelessWidget {
               ),
             ),
             Align(
-              alignment: Alignment(-0.7,0.95),
+              alignment: Alignment(-0.7, 0.95),
               child: FlutterImageStack.providers(
                 // itemBorderColor: Colors.transparent,
                 itemRadius: 80,

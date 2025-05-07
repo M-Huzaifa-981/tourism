@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tourism/screens/trending_resorts/trending_resorts_screen.dart';
+import 'package:tourism/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       // home: HomeScreen(),
       home: DefaultTabController(
         length: 4,
-        child: TrendingResortsScreen(),
-        // child: HomeScreen()
+        // child: FavoriteResortScreen(),
+        child: HomeScreen(),
       ),
     );
   }

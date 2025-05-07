@@ -20,7 +20,7 @@ class FeedCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: MediaQuery.of(context).size.height*0.68,
+          height: MediaQuery.of(context).size.height * 0.68,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -29,7 +29,7 @@ class FeedCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                child: Image(image: AssetImage('assets/pic1.jpeg')),
+                child: Image(image: AssetImage('assets/images/img8.jpg')),
               ),
               Align(
                 alignment: Alignment(0.8, 0.3),
@@ -73,9 +73,9 @@ class FeedCard extends StatelessWidget {
                       FlutterImageStack.providers(
                         itemRadius: 50,
                         providers: [
-                          ExactAssetImage('assets/pic1.jpeg'),
-                          ExactAssetImage('assets/pic1.jpeg'),
-                          ExactAssetImage('assets/pic1.jpeg'),
+                          ExactAssetImage('assets/images/img1.jpg'),
+                          ExactAssetImage('assets/images/img1.jpg'),
+                          ExactAssetImage('assets/images/img1.jpg'),
                         ],
                         totalCount: 4,
                       ),
@@ -94,7 +94,7 @@ class FeedCard extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 10,)
+        SizedBox(height: 10),
       ],
     );
   }

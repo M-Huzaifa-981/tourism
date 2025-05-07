@@ -17,11 +17,7 @@ class ImageCardInfo {
 
   // Convert to Map (excluding widgets)
   Map<String, dynamic> toMap() {
-    return {
-      'image': image,
-      'title': title,
-      'subtitle': subtitle,
-    };
+    return {'image': image, 'title': title, 'subtitle': subtitle};
   }
 
   // Create from Map
