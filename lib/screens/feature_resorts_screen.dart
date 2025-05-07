@@ -6,6 +6,7 @@ import '../models/imageCardInfo.dart';
 
 class FeatureResortsScreen extends StatelessWidget {
   const FeatureResortsScreen({super.key});
+
   static final String imagePath = "assets/images";
 
   @override
@@ -176,7 +177,7 @@ class FeatureResortsScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(500),
                                 image: DecorationImage(
                                   image: AssetImage("$imagePath/img$index.jpg"),
-                                  fit: BoxFit.cover
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -200,10 +201,7 @@ class FeatureResortsScreen extends StatelessWidget {
               ),
             ),
 
-
             SizedBox(height: 55),
-
-
 
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -221,7 +219,10 @@ class FeatureResortsScreen extends StatelessWidget {
                 ),
 
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 11),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 11,
+                    vertical: 11,
+                  ),
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
@@ -229,7 +230,7 @@ class FeatureResortsScreen extends StatelessWidget {
                       crossAxisCount: 2, // 2 cards per row
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
-                      childAspectRatio: 4/5.5,
+                      childAspectRatio: 4 / 5.5,
                     ),
                     itemCount: 4,
                     itemBuilder: (context, index) {
@@ -242,10 +243,7 @@ class FeatureResortsScreen extends StatelessWidget {
                         infoAlign: CrossAxisAlignment.center,
                         imageSize: Size(200, 200),
                         linearGradient: LinearGradient(
-                          colors: [
-                            Colors.transparent,
-                            Colors.transparent,
-                          ],
+                          colors: [Colors.transparent, Colors.transparent],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                         ),
@@ -256,11 +254,7 @@ class FeatureResortsScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            )
-
-
-
-
+            ),
           ],
         ),
       ),

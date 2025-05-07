@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
-import 'package:tourism/screens/home_screen.dart';
 import 'package:tourism/utils/customWidgets/trending_card.dart';
 
 import '../../generated/assets.dart';
@@ -19,7 +18,7 @@ class TrendingResortsScreen extends StatelessWidget {
       body: ListView(
         physics: PageScrollPhysics(),
         children: [
-          HomeScreen(),
+          TrendingCard(),
           TrendingCard(),
           TrendingCard(),
           TrendingCard(),

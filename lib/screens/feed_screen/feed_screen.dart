@@ -40,17 +40,11 @@ class FeedScreen extends StatelessWidget {
               labelColor: Colors.white,
               indicatorColor: Colors.white,
               dividerColor: Colors.transparent,
-              labelPadding: EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 10,
-              ),
+              labelPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               unselectedLabelColor: Color(0XFF39c8a5),
               tabAlignment: TabAlignment.start,
               isScrollable: true,
-              labelStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 19,
-              ),
+              labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
               tabs: [
                 Text('Things To Do'),
                 Text('Flights'),

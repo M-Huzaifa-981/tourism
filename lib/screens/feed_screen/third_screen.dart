@@ -5,10 +5,6 @@ class ThirdScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Third'),
-      ),
-    );
+    return Scaffold(body: Center(child: Text('Third')));
   }
 }
