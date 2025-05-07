@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import "package:badges/badges.dart" as badges;
+import 'package:tourism/screens/all_resorts_screen.dart';
 import 'package:tourism/screens/feature_resorts_screen.dart';
+import 'package:tourism/screens/restaurant_menu_screen.dart';
 import '../models/imageCardInfo.dart';
 import '../utils/customWidgets/imageInfoCard.dart';
 import '../utils/customWidgets/booking_card.dart';
+import 'customers_gallery.dart';
 import 'discover_screen.dart';
 import 'editor_pick_screen.dart';
 
@@ -17,6 +20,15 @@ class HomeScreen extends StatelessWidget {
     double height = size.height;
 
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          ElevatedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomersGallery()));
+              },
+              child: Icon(Icons.arrow_forward))
+        ],
+      ),
       body: Container(
         color: Colors.black12.withValues(alpha: 0.01),
         child: SingleChildScrollView(
@@ -108,14 +120,14 @@ class HomeScreen extends StatelessWidget {
 
                     bookingCard(size: size),
 
-                    SizedBox(height: 22,),
+                    SizedBox(height: 44,),
 
                     Row(
                       children: [
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> FeatureResortsScreen())); //DiscoverScreen
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> RestaurantMenuScreen())); //DiscoverScreen
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,       // Button background
@@ -134,7 +146,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(height: 22,),
+                    SizedBox(height: 33,),
 
 
                     Container(

@@ -38,14 +38,8 @@ Widget imageInfoCard({
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  imageCardInfo.title ?? "",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: titleSize,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                if(imageCardInfo.heading != null) imageCardInfo.heading!,
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

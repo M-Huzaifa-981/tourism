@@ -24,7 +24,7 @@ class TrendingCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image(
-                  image: AssetImage(Assets.resortPic1),
+                  image: AssetImage(Assets.assetsPic0),
                   height: 700,
                   fit: BoxFit.cover,
                 ),
