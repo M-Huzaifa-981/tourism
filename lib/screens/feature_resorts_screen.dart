@@ -213,6 +213,7 @@ class FeatureResortsScreen extends StatelessWidget {
 
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   padding: EdgeInsets.all(11),
@@ -231,7 +232,6 @@ class FeatureResortsScreen extends StatelessWidget {
                     horizontal: 7,
                     vertical: 11,
                   ),
-                  alignment: Alignment.center,
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
@@ -254,7 +254,7 @@ class FeatureResortsScreen extends StatelessWidget {
                         child: imageInfoCard(
                           imageCardInfo: cardData,
                           infoAlign: CrossAxisAlignment.center,
-                          imageSize: Size(166, 166),
+                          imageSize: Size(width/2.1, width/2.1),
                           linearGradient: LinearGradient(
                             colors: [Colors.transparent, Colors.transparent],
                             begin: Alignment.topCenter,
