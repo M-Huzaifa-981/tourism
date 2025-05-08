@@ -115,6 +115,7 @@ class FeatureResortsScreen extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 11),
               child: Row(
                 children: [
+                  Container(),
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
