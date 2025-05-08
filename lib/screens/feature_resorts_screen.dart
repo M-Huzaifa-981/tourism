@@ -251,17 +251,19 @@ class FeatureResortsScreen extends StatelessWidget {
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> FavoriteResortScreen()));
                         },
-                        child: imageInfoCard(
-                          imageCardInfo: cardData,
-                          infoAlign: CrossAxisAlignment.center,
-                          imageSize: Size(width/2.1, width/2.1),
-                          linearGradient: LinearGradient(
-                            colors: [Colors.transparent, Colors.transparent],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
+                        child: Center(
+                          child: imageInfoCard(
+                            imageCardInfo: cardData,
+                            infoAlign: CrossAxisAlignment.center,
+                            imageSize: Size(width/2.2, width/2.2),
+                            linearGradient: LinearGradient(
+                              colors: [Colors.transparent, Colors.transparent],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ),
+                            isShowCardInfo: true,
+                            borderRadius: 11,
                           ),
-                          isShowCardInfo: true,
-                          borderRadius: 11,
                         ),
                       );
                     },
