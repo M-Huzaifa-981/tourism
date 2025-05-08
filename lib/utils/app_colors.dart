@@ -4,4 +4,5 @@ class AppColors {
   AppColors._();
 
   static final primaryColor = Color(0xff39c8a5);
+  static final buttonColor = Color(0xff88c424);
 }
