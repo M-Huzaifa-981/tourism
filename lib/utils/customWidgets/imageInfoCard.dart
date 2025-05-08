@@ -41,17 +41,35 @@ Widget imageInfoCard({
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if(imageCardInfo.heading != null) imageCardInfo.heading!,
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                if (imageCardInfo.heading != null)
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Text(
+                      Text(
+                        imageCardInfo.heading ?? "",
                         overflow: TextOverflow.fade,
                         maxLines: 1,
                         softWrap: false,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: headingSize,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                  ],
+                ),
+
+                if (imageCardInfo.subtitle != null)
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                      Expanded(
+                      child: Text(
                         imageCardInfo.subtitle ?? "",
+                        overflow: TextOverflow.fade,
+                        maxLines: 1,
+                        softWrap: false,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: subTitleSize,
@@ -60,16 +78,17 @@ Widget imageInfoCard({
                       ),
                     ),
                     if (onTap != null)
-                      IconButton(
-                        onPressed: onTap,
-                        // ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> DiscoverScreen())),
-                        icon: Icon(
+                      InkWell(
+                        onTap: onTap,
+                        child: Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.white,
+                          size: subTitleSize+5,
                         ),
                       ),
                   ],
                 ),
+
               ],
             ),
           ),

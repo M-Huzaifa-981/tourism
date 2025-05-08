@@ -25,7 +25,7 @@ class FeedScreen extends StatelessWidget {
             ),
           ],
 
-          // bottom:
+
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),

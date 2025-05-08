@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class ImageCardInfo {
-  final Widget? heading;
+  final String? heading;
   final String image;
   final String? title;
   final String? subtitle;
@@ -17,16 +17,17 @@ class ImageCardInfo {
 
   // Convert to Map (excluding widgets)
   Map<String, dynamic> toMap() {
-    return {'image': image, 'title': title, 'subtitle': subtitle};
+    return {'image': image, 'heading': heading, 'title': title, 'subtitle': subtitle};
   }
 
   // Create from Map
   factory ImageCardInfo.fromMap(Map<String, dynamic> map) {
     return ImageCardInfo(
       image: map['image'] ?? '',
+      heading: map['heading'],
       title: map['title'],
       subtitle: map['subtitle'],
-      // heading and leading need to be passed manually after this
+      // leading need to be passed manually after this
     );
   }
 
@@ -40,7 +41,7 @@ class ImageCardInfo {
 
   // Create a copy with optional overrides
   ImageCardInfo copyWith({
-    Widget? heading,
+    String? heading,
     String? image,
     String? title,
     String? subtitle,

@@ -33,7 +33,7 @@ Widget bookingCard({required Size size}) {
             alignment: Alignment.centerLeft,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 5,
+              spacing: width / 99,
               children: [
                 Text(
                   "Booking Available",
@@ -43,7 +43,7 @@ Widget bookingCard({required Size size}) {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 6),
+                // SizedBox(height: 6),
                 Text(
                   "Ocean Breeze",
                   style: TextStyle(
@@ -52,7 +52,7 @@ Widget bookingCard({required Size size}) {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 4),
+                // SizedBox(height: 4),
                 Text(
                   "Hawaii",
                   style: TextStyle(
@@ -66,7 +66,7 @@ Widget bookingCard({required Size size}) {
           ),
 
           Container(
-            height: 66,
+            height: width / 6,
             child: Row(
               children: [
                 Container(

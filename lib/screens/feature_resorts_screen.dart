@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tourism/screens/all_resorts_screen.dart';
 import 'package:tourism/screens/home_screen.dart';
+import 'package:tourism/screens/trending_resorts_screen.dart';
 import 'package:tourism/utils/customWidgets/imageInfoCard.dart';
 
+import '../generated/assets.dart';
 import '../models/imageCardInfo.dart';
+import 'favorite_resort_screen.dart';
 
 class FeatureResortsScreen extends StatelessWidget {
   const FeatureResortsScreen({super.key});
@@ -47,33 +51,36 @@ class FeatureResortsScreen extends StatelessWidget {
             ),
 
             Container(
-              child: SingleChildScrollView(
+              height: width/1.66,
+              child: ListView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: List.generate(8, (index) {
-                    final cardData = ImageCardInfo(
-                      image: "$imagePath/img$index.jpg",
-                    );
-                    return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
-                      child: imageInfoCard(
-                        imageCardInfo: cardData,
-                        imageSize: Size(width / 1.5, width / 2.5),
-                        linearGradient: LinearGradient(
-                          colors: [Colors.transparent, Colors.transparent],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
+                children: [
+                  Row(
+                    children: List.generate(Assets.images.length, (index) {
+                      final cardData = ImageCardInfo(
+                        image: Assets.images[index], // "$imagePath/img$index.jpg",
+                      );
+                      return Container(
+                        margin: EdgeInsets.symmetric(horizontal: 15),
+                        child: imageInfoCard(
+                          imageCardInfo: cardData,
+                          imageSize: Size(width / 1.5, width / 2.5),
+                          linearGradient: LinearGradient(
+                            colors: [Colors.transparent, Colors.transparent],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                          ),
+                          isShowCardInfo: true,
+                          borderRadius: 9,
                         ),
-                        isShowCardInfo: true,
-                        borderRadius: 9,
-                      ),
-                    );
-                  }),
-                ),
+                      );
+                    }),
+                  ),
+                ],
               ),
             ),
 
-            SizedBox(height: 44),
+            SizedBox(height: 22),
 
             Container(
               child: Row(
@@ -102,7 +109,7 @@ class FeatureResortsScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 55),
+            SizedBox(height: 22),
 
             Container(
               margin: EdgeInsets.symmetric(horizontal: 11),
@@ -113,7 +120,7 @@ class FeatureResortsScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(builder: (context) => AllResortsScreen()),
                         ); //DiscoverScreen
                       },
                       style: ElevatedButton.styleFrom(
@@ -164,15 +171,15 @@ class FeatureResortsScreen extends StatelessWidget {
                     children: List.generate(3, (index) {
                       return Container(
                         margin: EdgeInsets.symmetric(
-                          horizontal: 9,
+                          horizontal: 2,
                           vertical: 9,
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 99,
-                              height: 99,
+                              width: 88,
+                              height: 88,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(500),
                                 image: DecorationImage(
@@ -201,7 +208,7 @@ class FeatureResortsScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 55),
+            SizedBox(height: 33),
 
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -220,17 +227,18 @@ class FeatureResortsScreen extends StatelessWidget {
 
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 11,
+                    horizontal: 7,
                     vertical: 11,
                   ),
+                  alignment: Alignment.center,
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, // 2 cards per row
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 4 / 5.5,
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 5,
+                      childAspectRatio: 4 / 6,
                     ),
                     itemCount: 4,
                     itemBuilder: (context, index) {
@@ -238,17 +246,22 @@ class FeatureResortsScreen extends StatelessWidget {
                         image: "$imagePath/img$index.jpg",
                       );
 
-                      return imageInfoCard(
-                        imageCardInfo: cardData,
-                        infoAlign: CrossAxisAlignment.center,
-                        imageSize: Size(200, 200),
-                        linearGradient: LinearGradient(
-                          colors: [Colors.transparent, Colors.transparent],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
+                      return InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> FavoriteResortScreen()));
+                        },
+                        child: imageInfoCard(
+                          imageCardInfo: cardData,
+                          infoAlign: CrossAxisAlignment.center,
+                          imageSize: Size(166, 166),
+                          linearGradient: LinearGradient(
+                            colors: [Colors.transparent, Colors.transparent],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          isShowCardInfo: true,
+                          borderRadius: 11,
                         ),
-                        isShowCardInfo: true,
-                        borderRadius: 11,
                       );
                     },
                   ),

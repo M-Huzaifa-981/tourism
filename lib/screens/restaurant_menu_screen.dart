@@ -15,33 +15,32 @@ class RestaurantMenuScreen extends StatelessWidget {
     double height = size.height;
     
     return Scaffold(
+      appBar:      AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text("RESTAURANT"),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
+      ),
+
       body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: ListView(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // spacing: 15,
           children: [
-
-
-
             Container(
               width: width,
               height: width/1.4,
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("$imagePath/img0.jpg"), fit: BoxFit.cover)
+                  image: DecorationImage(image: AssetImage("$imagePath/img0.jpg"), fit: BoxFit.cover)
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  AppBar(
-                    backgroundColor: Colors.white.withValues(alpha: 0.3),
-                    title: Text("RESTAURANT"),
-                    centerTitle: true,
-                    leading: IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: Icon(Icons.arrow_back_ios),
-                    ),
-                  ),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +109,7 @@ class RestaurantMenuScreen extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 15,),
+            // SizedBox(height: 15,),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -151,14 +150,14 @@ class RestaurantMenuScreen extends StatelessWidget {
               ],
             ),
 
-            SizedBox(height: 33,),
+            // SizedBox(height: 22,),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   // color: Colors.yellow,
-                  margin: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+                  margin: EdgeInsets.symmetric(horizontal: 7, vertical: 1),
                   child: Text(
                     "Amazing Salads to Fit Your Needs",
                     style: TextStyle(
@@ -178,7 +177,7 @@ class RestaurantMenuScreen extends StatelessWidget {
               children: [
                 Container(
                   // color: Colors.yellow,
-                  margin: EdgeInsets.symmetric(horizontal: 7, vertical: 7),
+                  margin: EdgeInsets.symmetric(horizontal: 7, vertical: 1),
                   child: Text.rich(
                     TextSpan(
                       style: TextStyle(
@@ -199,54 +198,36 @@ class RestaurantMenuScreen extends StatelessWidget {
             ),
 
 
-            Expanded(
-                child: ListView.builder(
-                  itemCount: 8,
-                  shrinkWrap: true,
-                  padding: EdgeInsets.zero,
-                  itemBuilder: (BuildContext context, int index) {
-                    ImageCardInfo cardData = ImageCardInfo(
-                        image: "$imagePath/img$index.jpg",
-                       heading: Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                         children: [
-                           Text(
-                             "Athena Henri",
-                             style: TextStyle(
-                               color: Colors.white,
-                               fontSize: 16,
-                               fontWeight: FontWeight.bold,
-                             ),
-                           ),
+            ...List.generate(8, (index){
+              ImageCardInfo cardData = ImageCardInfo(
+                  image: "$imagePath/img$index.jpg",
+                  heading: "Athena Henri",
+                  subtitle: "Salads"
+              );
+              return  Container(
+                alignment: Alignment.topCenter,
+                margin: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+                child: imageInfoCard(
+                    imageCardInfo: cardData,
+                    headingSize: 16,
+                    subTitleSize: 14,
+                    imageSize: Size(width/1.05, width/1.8),
+                    linearGradient: LinearGradient(
+                        colors: [
+                          Colors.transparent,
+                          Colors.transparent,
+                          Colors.black.withValues(alpha: 0.7)
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        transform: GradientRotation(44)
+                    ),
+                    isShowCardInfo: false,
+                    borderRadius: 11
+                ),
+              );
+            })
 
-                           Text("Salads", style: TextStyle(fontSize: 14, color: Colors.white),),
-                         ],
-                       )
-                    );
-                    return Container(
-                      alignment: Alignment.topCenter,
-                      margin: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
-                      child: imageInfoCard(
-                          imageCardInfo: cardData,
-                          imageSize: Size(width/1.05, width/1.8),
-                          linearGradient: LinearGradient(
-                            colors: [
-                              Colors.transparent,
-                              Colors.transparent,
-                              Colors.black.withValues(alpha: 0.7)
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            transform: GradientRotation(44)
-                          ),
-                          isShowCardInfo: false,
-                          borderRadius: 11
-                      ),
-                    );
-                  },
-
-                )
-            )
 
 
 

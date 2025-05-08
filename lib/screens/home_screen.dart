@@ -24,12 +24,12 @@ class HomeScreen extends StatelessWidget {
             children: [
               Container(
                 width: width,
-                height: height / 3.5,
+                height: width / 1.6,
                 padding: EdgeInsets.only(bottom: 9),
                 decoration: BoxDecoration(color: Colors.green),
                 child: Column(
                   spacing: 22,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
                       "Travel Guide",
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(text: "Best Places To\n"),
-                            TextSpan(text: "Travel In December"),
+                            TextSpan(text: "Travel In Spring"),
                           ],
                         ),
                       ),
@@ -115,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> FeatureResortsScreen())); //DiscoverScreen
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> DiscoverScreen())); //DiscoverScreen
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.green,       // Button background
@@ -205,7 +205,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Container(
                             padding: EdgeInsets.all(5) ,
-                              child: Text("DISCOVER RISTURENTS NEAR YOU",
+                              child: Text("DISCOVER RESTAURANTS NEAR YOU",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
@@ -261,19 +261,24 @@ class HomeScreen extends StatelessWidget {
 
                                 return Container(
                                   margin: EdgeInsets.all(5),
-                                  child: imageInfoCard(
-                                    imageCardInfo: cardData,
-                                    titleSize: 11,
-                                    infoAlign: CrossAxisAlignment.center,
-                                    imageSize: Size(155, 155),
-                                    linearGradient: LinearGradient(
-                                      colors: [Colors.transparent,
-                                        Colors.green.withOpacity(0.7)],
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
+                                  child: InkWell(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> FeatureResortsScreen()));
+                                    },
+                                    child: imageInfoCard(
+                                      imageCardInfo: cardData,
+                                      titleSize: 11,
+                                      infoAlign: CrossAxisAlignment.center,
+                                      imageSize: Size(155, 155),
+                                      linearGradient: LinearGradient(
+                                        colors: [Colors.transparent,
+                                          Colors.green.withOpacity(0.5)],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      isShowCardInfo: true,
+                                      borderRadius: 11,
                                     ),
-                                    isShowCardInfo: true,
-                                    borderRadius: 11,
                                   ),
                                 );
                               }
@@ -288,7 +293,7 @@ class HomeScreen extends StatelessWidget {
                     ),
 
 
-                    SizedBox(height: 55,),
+                    SizedBox(height: 33,),
 
 
 
@@ -308,7 +313,7 @@ class HomeScreen extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(5),
         width: size.width/1.5,
-        height: size.width/1.5,
+        height: size.width/1.27,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(11)
@@ -332,7 +337,7 @@ class HomeScreen extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(7),
                   child: Column(
-                    spacing: 5,
+                    spacing:  size.width / 99,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

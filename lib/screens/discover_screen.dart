@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tourism/screens/restaurant_menu_screen.dart';
 
+import '../generated/assets.dart';
 import '../models/imageCardInfo.dart';
 import '../utils/customWidgets/imageInfoCard.dart';
 
@@ -10,6 +12,7 @@ class DiscoverScreen extends StatelessWidget {
   static final String imagePath = "assets/images";
 
   final List<String> titles = [
+    "Food",
     "Society",
     "People",
     "Living",
@@ -17,7 +20,6 @@ class DiscoverScreen extends StatelessWidget {
     "Culture",
     "Fashion",
     "Entertainments",
-    "Food",
   ];
 
   final List<Color> colors = [
@@ -53,27 +55,34 @@ class DiscoverScreen extends StatelessWidget {
         itemCount: titles.length,
         itemBuilder: (BuildContext context, int index) {
           final cardData = ImageCardInfo(
-            image: "$imagePath/img$index.jpg",
-            title: titles[index],
-            subtitle: "Explore New ${titles[index]}",
+            image: Assets.images[index],
+            heading: titles[index],
+            subtitle: "Explore New ${titles[index]}"
           );
           return Container(
-            child: imageInfoCard(
-              imageCardInfo: cardData,
-              titleSize: 44,
-              subTitleSize: 12,
-              imageSize: Size(width, height / 4.3),
-              linearGradient: LinearGradient(
-                colors: [
-                  colors[index].withOpacity(0.1),
-                  colors[index].withOpacity(0.9),
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                transform: GradientRotation(45),
+            child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> RestaurantMenuScreen()));
+              },
+              child: imageInfoCard(
+                imageCardInfo: cardData,
+                headingSize: 33,
+                titleSize: 44,
+                subTitleSize: 12,
+                imageSize: Size(width, height / 4.3),
+                linearGradient: LinearGradient(
+                  colors: [
+                    colors[index].withOpacity(0.1),
+                    colors[index].withOpacity(0.9),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  transform: GradientRotation(45),
+                ),
+                isShowCardInfo: false,
+                onTap: (){},
+                borderRadius: 0,
               ),
-              isShowCardInfo: false,
-              borderRadius: 0,
             ),
           );
         },

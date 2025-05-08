@@ -31,8 +31,9 @@ class EditorPickScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             Container(
-              margin: EdgeInsets.all(11),
+              margin: EdgeInsets.all(7),
               child: Text(
                 "Editor's Picks",
                 style: TextStyle(fontSize: 33, color: Colors.green),
@@ -40,9 +41,9 @@ class EditorPickScreen extends StatelessWidget {
             ),
 
             Container(
-              height: width / 1.25,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              // height: width / 1.25,
+              child: Wrap(
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(5),
@@ -57,21 +58,21 @@ class EditorPickScreen extends StatelessWidget {
                       children: List.generate(8, (index) {
                         final cardData = ImageCardInfo(
                           image: "$imagePath/img$index.jpg",
-                          title: "Phulay Bay",
+                          // title: "Phulay Bay",
                         );
                         return Container(
                           margin: EdgeInsets.all(5),
                           child: imageInfoCard(
                             imageCardInfo: cardData,
                             titleSize: 11,
-                            imageSize: Size(width / 3, width / 1.9),
+                            imageSize: Size(width / 3, width / 2),
                             linearGradient: LinearGradient(
                               colors: [
                                 Colors.transparent,
-                                Colors.green.withOpacity(0.9),
+                                Colors.green.withOpacity(0.5),
                               ],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
                             ),
                             isShowCardInfo: true,
                             borderRadius: 11,
