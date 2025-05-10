@@ -14,7 +14,7 @@ class FirstScreen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         // dragStartBehavior: DragStartBehavior.start,
         physics: PageScrollPhysics(),
-        children: [FeedCard(), FeedCard(), FeedCard(), FeedCard()],
+        children: [FeedCard(picNo: 2,), FeedCard(picNo: 4,), FeedCard(picNo: 6,), FeedCard(picNo: 1,)],
       ),
     );
   }

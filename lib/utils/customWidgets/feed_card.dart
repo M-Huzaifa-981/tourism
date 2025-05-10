@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 
 class FeedCard extends StatelessWidget {
-  const FeedCard({super.key});
+  const FeedCard({super.key, required this.picNo});
+  final int picNo;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class FeedCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: MediaQuery.of(context).size.height * 0.68,
+          height: MediaQuery.of(context).size.height * 0.6,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -29,7 +30,7 @@ class FeedCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                child: Image(image: AssetImage('assets/images/img8.jpg')),
+                child: Image(image: AssetImage('assets/images/img$picNo.jpg'), fit: BoxFit.cover,height: 400,),
               ),
               Align(
                 alignment: Alignment(0.8, 0.3),
@@ -50,7 +51,7 @@ class FeedCard extends StatelessWidget {
                   child: Text(
                     'Pakistan\'s Best Foodie Cities',
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 35,
                       color: Color(0XFF39c8a5),
                       fontWeight: FontWeight.bold,
                     ),
@@ -73,9 +74,11 @@ class FeedCard extends StatelessWidget {
                       FlutterImageStack.providers(
                         itemRadius: 50,
                         providers: [
-                          ExactAssetImage('assets/images/img1.jpg'),
-                          ExactAssetImage('assets/images/img1.jpg'),
-                          ExactAssetImage('assets/images/img1.jpg'),
+                          ...List.generate(4, (index)=>
+                          ExactAssetImage('assets/images/img$index.jpg'),
+                          )
+                          // ExactAssetImage('assets/images/img1.jpg'),
+                          // ExactAssetImage('assets/images/img1.jpg'),
                         ],
                         totalCount: 4,
                       ),

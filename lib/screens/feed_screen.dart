@@ -24,8 +24,6 @@ class FeedScreen extends StatelessWidget {
               icon: Icon(Icons.search, color: Colors.white),
             ),
           ],
-
-
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
