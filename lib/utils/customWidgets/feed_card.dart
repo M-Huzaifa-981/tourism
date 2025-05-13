@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 
@@ -7,6 +9,8 @@ class FeedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  Random random = Random();
+  int myRandomNo = random.nextInt(8);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 7,
@@ -21,7 +25,7 @@ class FeedCard extends StatelessWidget {
           ),
         ),
         Container(
-          height: MediaQuery.of(context).size.height * 0.6,
+          height: MediaQuery.of(context).size.height * 0.59,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -30,13 +34,13 @@ class FeedCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                child: Image(image: AssetImage('assets/images/img$picNo.jpg'), fit: BoxFit.cover,height: 400,),
+                child: Image(image: AssetImage('assets/images/img$picNo.jpg'), fit: BoxFit.cover,height: 420,),
               ),
               Align(
-                alignment: Alignment(0.8, 0.3),
+                alignment: Alignment(0.9, 0.3),
                 child: Container(
-                  height: 70,
-                  width: 70,
+                  height: 60,
+                  width: 60,
                   decoration: BoxDecoration(
                     color: Colors.red,
                     borderRadius: BorderRadius.circular(50),
@@ -45,13 +49,13 @@ class FeedCard extends StatelessWidget {
                 ),
               ),
               Align(
-                alignment: Alignment(0, 0.75),
+                alignment: Alignment(0, 0.7),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Pakistan\'s Best Foodie Cities',
                     style: TextStyle(
-                      fontSize: 35,
+                      fontSize: 30,
                       color: Color(0XFF39c8a5),
                       fontWeight: FontWeight.bold,
                     ),
@@ -69,13 +73,18 @@ class FeedCard extends StatelessWidget {
                     ),
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     spacing: 8,
                     children: [
                       FlutterImageStack.providers(
-                        itemRadius: 50,
+                        itemRadius: 45,
+                        itemBorderColor: Colors.white24,
+                        showTotalCount: false,
+                        backgroundColor: Colors.blue,
+                        itemBorderWidth: 0.3,
                         providers: [
                           ...List.generate(4, (index)=>
-                          ExactAssetImage('assets/images/img$index.jpg'),
+                          ExactAssetImage('assets/images/img$myRandomNo.jpg'),
                           )
                           // ExactAssetImage('assets/images/img1.jpg'),
                           // ExactAssetImage('assets/images/img1.jpg'),
@@ -87,7 +96,7 @@ class FeedCard extends StatelessWidget {
                         '3,123 loved this !',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 19,
                         ),
                       ),
                     ],

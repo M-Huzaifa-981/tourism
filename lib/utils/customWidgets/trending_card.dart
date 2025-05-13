@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:tourism/screens/customers_gallery.dart';
+import 'package:tourism/screens/favorite_resorts_screen/fav_destination_screen.dart';
 
 import '../../generated/assets.dart';
 
@@ -16,7 +17,7 @@ class TrendingCard extends StatelessWidget {
       decoration: BoxDecoration(),
       child: InkWell(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomersGallery()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> FavDestinationScreen()));
         },
         child: Material(
           elevation: 50,

@@ -32,7 +32,6 @@ class CustomersGallery extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
           children: [
-
             Padding(
               padding: EdgeInsets.symmetric(vertical: 22),
               child: Text(
@@ -48,7 +47,6 @@ class CustomersGallery extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                 itemCount: galleries.length,
-
                 separatorBuilder: (_, __) => const Divider(),
                 itemBuilder: (context, index) {
                   final gallery = galleries[index];

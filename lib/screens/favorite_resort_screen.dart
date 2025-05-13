@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:tourism/main_nav.dart';
 import 'package:tourism/utils/app_colors.dart';
 
 import '../generated/assets.dart';
@@ -14,17 +17,17 @@ class FavoriteResortScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Resorts'), centerTitle: true),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(11),
             child: Container(
               decoration: BoxDecoration(color: Colors.amber),
-              height: 680,
+              height: 550,
               child: Stack(
                 children: [
                   Image.asset(
-                    Assets.assetsPic1,
+                    Assets.assetsPic6,
                     height: 600,
                     fit: BoxFit.cover,
                   ),
@@ -50,7 +53,7 @@ class FavoriteResortScreen extends StatelessWidget {
                     bottom: 0,
                     // alignment: Alignment.bottomCenter,
                     child: SizedBox(
-                      height: 88,
+                      height: 70,
                       width: width,
                       child: Row(
                         // mainAxisSize: MainAxisSize.min,
@@ -61,7 +64,8 @@ class FavoriteResortScreen extends StatelessWidget {
                             child: Container(
                               margin: EdgeInsets.symmetric(horizontal: 0.5),
                               child: Image.asset(
-                                Assets.assetsPic0,
+                                height: 88,
+                                'assets/images/img$index.jpg',
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -76,7 +80,7 @@ class FavoriteResortScreen extends StatelessWidget {
                     ),
                   ),
                   Align(
-                    alignment: Alignment(0, 0.7),
+                    alignment: Alignment(0, 0.4),
                     child: bookingCard(size: Size(390, 222)),
                   ),
                 ],
@@ -145,7 +149,7 @@ class FavoriteResortScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(10),
             child: Column(
-              spacing: 6,
+              spacing: 16,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -160,7 +164,7 @@ class FavoriteResortScreen extends StatelessWidget {
                       4,
                       (index) => ClipRRect(
                         borderRadius: BorderRadius.circular(5),
-                        child: Image.asset(Assets.assetsPic1, height: 130),
+                        child: Image.asset('${Assets.assetsPic7}', height: 130),
                       ),
                     ),
                   ),
@@ -289,6 +293,28 @@ class FavoriteResortScreen extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+          ),
+          GestureDetector(
+            onTap: (){
+              Get.to(MainNav());
+            },
+            child: Container(
+              height: 50,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColors.buttonColor,
+                borderRadius: BorderRadius.circular(11),
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                'Book Now',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
           ),
           SizedBox(height: 30),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:tourism/generated/assets.dart';
 import 'package:tourism/utils/app_colors.dart';
 import 'package:tourism/utils/customWidgets/booking_card.dart';
 
@@ -12,6 +13,8 @@ class AroundMeScreen extends StatefulWidget {
 }
 
 class _AroundMeScreenState extends State<AroundMeScreen> {
+  bool isTrue = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,42 +25,68 @@ class _AroundMeScreenState extends State<AroundMeScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            FlutterMap(
-              options: MapOptions(
-                initialCenter: LatLng(51.5, -0.09),
-                initialZoom: 13.0,
-              ),
-              children: [
-                TileLayer(
-                  urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                  userAgentPackageName:
-                      'com.example.app', // Required to be polite
+            if (isTrue) ...[
+              FlutterMap(
+                options: MapOptions(
+                  initialCenter: LatLng(51.5, -0.09),
+                  initialZoom: 13.0,
                 ),
-              ],
-            ),
-            
+                children: [
+                  TileLayer(
+                    urlTemplate:
+                        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    userAgentPackageName:
+                        'com.example.app', // Required to be polite
+                  ),
+                ],
+              ),
+            ] else ...[
+              Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(Assets.assetsPic4),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
+
             Column(
               children: [
                 Container(
                   width: double.infinity,
                   height: 80,
                   decoration: BoxDecoration(
-                    color: AppColors.primaryColor.withValues(alpha: 0.9),
+                    color: AppColors.primaryColor.withValues(alpha: 0.8),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        onPressed: ()=>Navigator.maybePop(context),
+                        onPressed: () => Navigator.maybePop(context),
                         icon: Icon(Icons.arrow_back_ios, color: Colors.white),
                       ),
                       Text(
                         'Around Me',
                         style: TextStyle(color: Colors.white, fontSize: 22),
                       ),
-                      IconButton(
-                        onPressed: null,
-                        icon: Icon(Icons.search, color: Colors.white),
+                      Row(
+                        children: [
+                          Switch(
+                            value: isTrue,
+                            onChanged: (val) {
+                              setState(() {
+                                isTrue = val;
+                              });
+                            },
+                          ),
+                          IconButton(
+                            onPressed: null,
+                            icon: Icon(Icons.search, color: Colors.white),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -163,12 +192,18 @@ class _AroundMeScreenState extends State<AroundMeScreen> {
                   padding: EdgeInsets.only(left: 5, right: 10),
                   scrollDirection: Axis.horizontal,
                   children: [
-                    ...List.generate(5, (index)=>
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: bookingCard(size: Size(MediaQuery.of(context).size.width/1.3, MediaQuery.of(context).size.width/1)),
+                    ...List.generate(
+                      5,
+                      (index) => Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: bookingCard(
+                          size: Size(
+                            MediaQuery.of(context).size.width / 1.3,
+                            MediaQuery.of(context).size.width / 1,
+                          ),
+                        ),
+                      ),
                     ),
-                    )
                   ],
                 ),
               ),

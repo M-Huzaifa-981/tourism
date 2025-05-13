@@ -15,100 +15,103 @@ Widget imageInfoCard({
   VoidCallback? onTap,
   required LinearGradient linearGradient,
 }) {
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: Column(
-      crossAxisAlignment: infoAlign,
-      children: [
-        Container(
-          width: imageSize.width,
-          height: imageSize.height,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius),
-            image: DecorationImage(
-              image: AssetImage(imageCardInfo.image),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Container(
+  return GestureDetector(
+    onTap: onTap,
+    child: SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Column(
+        crossAxisAlignment: infoAlign,
+        children: [
+          Container(
+            width: imageSize.width,
+            height: imageSize.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(borderRadius),
-              gradient: linearGradient,
+              image: DecorationImage(
+                image: AssetImage(imageCardInfo.image),
+                fit: BoxFit.cover,
+              ),
             ),
-            padding: EdgeInsets.all(12),
-            alignment: Alignment.bottomLeft,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(borderRadius),
+                gradient: linearGradient,
+              ),
+              padding: EdgeInsets.all(12),
+              alignment: Alignment.bottomLeft,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-                if (imageCardInfo.heading != null)
-                  Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                      Text(
-                        imageCardInfo.heading ?? "",
-                        overflow: TextOverflow.fade,
-                        maxLines: 1,
-                        softWrap: false,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: headingSize,
-                          fontWeight: FontWeight.bold,
+                  if (imageCardInfo.heading != null)
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                        Text(
+                          imageCardInfo.heading ?? "",
+                          overflow: TextOverflow.fade,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: headingSize,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                    ],
+                  ),
+
+                  if (imageCardInfo.subtitle != null)
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                        Expanded(
+                        child: Text(
+                          imageCardInfo.subtitle ?? "",
+                          overflow: TextOverflow.fade,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: subTitleSize,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
-                  ],
-                ),
-
-                if (imageCardInfo.subtitle != null)
-                  Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                      Expanded(
-                      child: Text(
-                        imageCardInfo.subtitle ?? "",
-                        overflow: TextOverflow.fade,
-                        maxLines: 1,
-                        softWrap: false,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: subTitleSize,
-                          fontWeight: FontWeight.w400,
+                      if (onTap != null)
+                        InkWell(
+                          onTap: onTap,
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                            size: subTitleSize+5,
+                          ),
                         ),
-                      ),
-                    ),
-                    if (onTap != null)
-                      InkWell(
-                        onTap: onTap,
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                          size: subTitleSize+5,
-                        ),
-                      ),
-                  ],
-                ),
+                    ],
+                  ),
 
-              ],
-            ),
-          ),
-        ),
-        if (isShowCardInfo)
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 5),
-            child: Column(
-              crossAxisAlignment: infoAlign,
-              children: [
-                Text("⭐⭐⭐⭐"),
-                Text(
-                  "4.8 (512 Reviews)",
-                  style: TextStyle(color: CupertinoColors.systemYellow),
-                ),
-                Text("Hawaii"),
-              ],
+                ],
+              ),
             ),
           ),
-      ],
+          if (isShowCardInfo)
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: Column(
+                crossAxisAlignment: infoAlign,
+                children: [
+                  Text("⭐⭐⭐⭐"),
+                  Text(
+                    "4.8 (512 Reviews)",
+                    style: TextStyle(color: CupertinoColors.systemYellow),
+                  ),
+                  Text("Hawaii"),
+                ],
+              ),
+            ),
+        ],
+      ),
     ),
   );
 }

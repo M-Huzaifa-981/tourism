@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tourism/screens/all_resorts_screen.dart';
+import 'package:tourism/screens/favorite_resorts_screen/fav_destination_screen.dart';
+import 'package:tourism/screens/food_screen.dart';
+import 'package:tourism/screens/trending_resorts_screen.dart';
 
 import 'feed_screen/first_screen.dart';
 import 'feed_screen/fourth_screen.dart';
@@ -11,7 +15,7 @@ class FeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         backgroundColor: Color(0XFF17c69b),
         appBar: AppBar(
@@ -28,12 +32,12 @@ class FeedScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            spacing: 20,
+            spacing: 10,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Your Feed',
-                style: TextStyle(fontSize: 40, color: Colors.white),
+                style: TextStyle(fontSize: 35, color: Colors.white),
               ),
               TabBar(
                 // indicatorSize: TabBarIndicatorSize.tab,
@@ -53,18 +57,21 @@ class FeedScreen extends StatelessWidget {
                 ),
                 tabs: [
                   Text('Things To Do'),
-                  Text('Flights'),
-                  Text('Hotels'),
+                  Text('Trending'),
+                  Text('Destinations'),
                   Text('Food'),
+                  Text('All Resorts'),
                 ],
               ),
               Expanded(
                 child: TabBarView(
+                  physics: NeverScrollableScrollPhysics(),
                   children: [
                     FirstScreen(),
-                    SecondScreen(),
-                    ThirdScreen(),
-                    FourthScreen(),
+                    TrendingResortsScreen(),
+                    FavDestinationScreen(),
+                    FoodScreen(),
+                    AllResortsScreen(),
                   ],
                 ),
               ),

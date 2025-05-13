@@ -20,10 +20,10 @@ class _MainNavState extends State<MainNav> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-    RestaurantMenuScreen(),
-    FeedScreen(),
-    EditorPickScreen(),
     FeatureResortsScreen(),
+    FeedScreen(),
+    RestaurantMenuScreen(),
+    EditorPickScreen(),
   ];
 
   @override
@@ -34,16 +34,20 @@ class _MainNavState extends State<MainNav> {
         shadowColor: AppColors.primaryColor,
         elevation: 10,
         backgroundColor: Colors.white,
-        top: -11,
+        // top: -11,
+        // height: 45,
+        // cornerRadius: 12,
+        top: -18,
+        style: TabStyle.fixedCircle,
         activeColor: Colors.green,
-        color: Colors.black,
+        color: Colors.grey,
         disableDefaultTabController: true,
         // style: TabStyle.flip,
         items: const [
-          TabItem(icon: Icons.home, title: 'Home', ),
-          TabItem(icon: Icons.restaurant_menu, title: 'Hotel'),
-          TabItem(icon: Icons.feed_rounded, title: 'Feed'),
-          TabItem(icon: Icons.photo_album_outlined , title: 'Editors'),
+          TabItem( icon: Icons.home, title: 'Home', ),
+          TabItem(icon: Icons.hotel, title: 'Hotel'),
+          TabItem(icon: Icons.newspaper, title: 'Feed'),
+          TabItem(icon: Icons.restaurant , title: 'Restaurants'),
           TabItem(icon: Icons.people, title: 'Profile'),
         ],
         onTap: (int i) {
