@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:tourism/screens/all_resorts_screen.dart';
 import 'package:tourism/screens/home_screen.dart';
 import 'package:tourism/screens/trending_resorts_screen.dart';
@@ -118,10 +120,7 @@ class FeatureResortsScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => AllResortsScreen()),
-                      ); //DiscoverScreen
+                      Get.to(AllResortsScreen());
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green, // Button background

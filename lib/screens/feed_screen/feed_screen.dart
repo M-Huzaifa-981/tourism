@@ -55,7 +55,7 @@ class FeedScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  FirstScreen(),
+                  ThingsToDoScreen(),
                   SecondScreen(),
                   ThirdScreen(),
                   FourthScreen(),

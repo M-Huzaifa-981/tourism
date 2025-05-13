@@ -6,6 +6,7 @@ import 'package:tourism/screens/favorite_resorts_screen/fav_destination_screen.d
 import 'package:tourism/screens/feed_screen.dart';
 import 'package:tourism/screens/food_details_screen.dart';
 import 'package:tourism/screens/food_screen.dart';
+import 'package:tourism/screens/profile_screen.dart';
 import 'package:tourism/screens/rough_work.dart';
 import 'package:tourism/screens/trending_resorts_screen.dart';
 import 'main_nav.dart';
@@ -24,8 +25,8 @@ class MyApp extends StatelessWidget {
       // home: HomeScreen(),
       home: DefaultTabController(
         length: 5,
-        // child: FoodDetailsScreen(),
         child: MainNav(),
+        // child: ProfileScreen(),
       ),
     );
   }

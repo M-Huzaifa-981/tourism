@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:tourism/screens/food_screen.dart';
 import 'package:tourism/screens/restaurant_menu_screen.dart';
 
 import '../generated/assets.dart';
@@ -45,7 +48,7 @@ class DiscoverScreen extends StatelessWidget {
         title: Text("DISCOVER"),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.maybePop(context);
           },
           icon: Icon(Icons.arrow_back_ios),
         ),
@@ -59,31 +62,26 @@ class DiscoverScreen extends StatelessWidget {
             heading: titles[index],
             subtitle: "Explore New ${titles[index]}"
           );
-          return Container(
-            child: InkWell(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> RestaurantMenuScreen()));
-              },
-              child: imageInfoCard(
-                imageCardInfo: cardData,
-                headingSize: 33,
-                titleSize: 44,
-                subTitleSize: 12,
-                imageSize: Size(width, height / 4.3),
-                linearGradient: LinearGradient(
-                  colors: [
-                    colors[index].withOpacity(0.1),
-                    colors[index].withOpacity(0.9),
-                  ],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                  transform: GradientRotation(45),
-                ),
-                isShowCardInfo: false,
-                onTap: (){},
-                borderRadius: 0,
-              ),
+          return imageInfoCard(
+            imageCardInfo: cardData,
+            headingSize: 33,
+            titleSize: 44,
+            subTitleSize: 12,
+            imageSize: Size(width, height / 4.3),
+            linearGradient: LinearGradient(
+              colors: [
+                colors[index].withOpacity(0.1),
+                colors[index].withOpacity(0.9),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              transform: GradientRotation(45),
             ),
+            isShowCardInfo: false,
+            onTap: (){
+              Get.to(FoodScreen());
+            },
+            borderRadius: 0,
           );
         },
       ),

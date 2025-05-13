@@ -34,7 +34,7 @@ class FeedCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                child: Image(image: AssetImage('assets/images/img$picNo.jpg'), fit: BoxFit.cover,height: 420,),
+                child: Image(image: AssetImage('assets/images/img$picNo.jpg'), fit: BoxFit.cover,height: 320,),
               ),
               Align(
                 alignment: Alignment(0.9, 0.3),

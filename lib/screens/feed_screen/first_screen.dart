@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../utils/customWidgets/feed_card.dart';
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
+class ThingsToDoScreen extends StatelessWidget {
+  const ThingsToDoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

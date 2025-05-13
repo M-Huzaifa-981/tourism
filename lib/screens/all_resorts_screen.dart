@@ -19,185 +19,188 @@ class AllResortsScreen extends StatelessWidget {
         //   centerTitle: true,
         // ),
       
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: width/2,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    spacing: 11,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: EdgeInsets.symmetric(horizontal: 11),
-                            child: Text(
-                              "All Resorts",
-                              style: TextStyle(
-                                color: Colors.green,
-                                fontSize: 44,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-          
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: width/1.05,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                //Navigator.push(context, MaterialPageRoute(builder: (context)=> FeatureResortsScreen())); //DiscoverScreen
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green,       // Button background
-                                foregroundColor: Colors.white,       // Text/Icon color
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(11), // Rounded corners
-                                ),
-                                padding: EdgeInsets.symmetric(vertical: 14), // Optional: taller button
-                              ),
-                              child: Container(
-                                margin: EdgeInsets.symmetric(horizontal: 11),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "Places",
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                    Text(
-                                      "Hawaii",
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                  ],
+        body: PopScope(
+          canPop: true,
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: width/1.8,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      spacing: 11,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 11),
+                              child: Text(
+                                "All Resorts",
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  fontSize: 44,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-          
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: width / 1.1,
-                            padding: EdgeInsets.symmetric(horizontal: 7),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(11),
-                            ),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                        labelText: "Enter your keywords",
-                                        border: InputBorder.none
-                                    ),
+                          ],
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: width/1.05,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  //Navigator.push(context, MaterialPageRoute(builder: (context)=> FeatureResortsScreen())); //DiscoverScreen
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.green,       // Button background
+                                  foregroundColor: Colors.white,       // Text/Icon color
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(11), // Rounded corners
+                                  ),
+                                  padding: EdgeInsets.symmetric(vertical: 14), // Optional: taller button
+                                ),
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 11),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "Places",
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                      Text(
+                                        "Hawaii",
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                    ],
                                   ),
                                 ),
-          
-                                InkWell(
-                                  onTap: (){
-                                    FocusScope.of(context).unfocus();
-                                  },
-                                  child: Container(
-                                    width: 66,
-                                    // height: 55,
-                                    // color: Colors.green,
-                                    child: Icon(Icons.search),
-                                  ),
-                                ),
-          
-                              ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-          
-          
-                    ],
-                  ),
-              ),
-          
-              Container( height: 22,),
-              Divider(height: 1,),
-          
-              Expanded(
-                child: ListView.builder(
-                  itemCount: 9,
-                  itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        margin: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
-                        child: Card(
-                          margin: EdgeInsets.all(7),
-                          child: ListTile(
-                            leading: Container(
-                              width: 66,
-                              height: 66,
+                          ],
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: width / 1.1,
+                              padding: EdgeInsets.symmetric(horizontal: 7),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(7),
-                                image: DecorationImage(image: AssetImage("$imagePath/img$index.jpg"), fit: BoxFit.cover),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(11),
                               ),
-                            ),
-          
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Richard's River Camp",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold
-                                  ),
-                                ),
-                                Text("Hawaii"),
-                              ],
-                            ),
-          
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              spacing: 5,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text("⭐⭐⭐⭐ \t "),
-                                    Text("4.8 (512 Reviews",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                          labelText: "Enter your keywords",
+                                          border: InputBorder.none
                                       ),
                                     ),
-                                  ],
-                                ),
-                                Text("Booking Available",
-                                  style: TextStyle(
-                                      color: Colors.green
                                   ),
-                                ),
-                              ],
+
+                                  InkWell(
+                                    onTap: (){
+                                      FocusScope.of(context).unfocus();
+                                    },
+                                    child: SizedBox(
+                                      width: 66,
+                                      // height: 55,
+                                      // color: Colors.green,
+                                      child: Icon(Icons.search),
+                                    ),
+                                  ),
+
+                                ],
+                              ),
                             ),
-          
-          
-                          ),
-                        )
-                      );
-          
-          
-                  },
-          
+                          ],
+                        ),
+
+
+                      ],
+                    ),
                 ),
-              ),
-          
-          
-            ],
+
+                Container( height: 22,),
+                Divider(height: 1,),
+
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: 9,
+                    itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          margin: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+                          child: Card(
+                            margin: EdgeInsets.all(7),
+                            child: ListTile(
+                              leading: Container(
+                                width: 66,
+                                height: 66,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  image: DecorationImage(image: AssetImage("$imagePath/img$index.jpg"), fit: BoxFit.cover),
+                                ),
+                              ),
+
+                              title: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Richard's River Camp",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                  Text("Hawaii"),
+                                ],
+                              ),
+
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                spacing: 5,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text("⭐⭐⭐⭐ \t "),
+                                      Text("4.8 (512 Reviews",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Text("Booking Available",
+                                    style: TextStyle(
+                                        color: Colors.green
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+
+                            ),
+                          )
+                        );
+
+
+                    },
+
+                  ),
+                ),
+
+
+              ],
+            ),
           ),
         ),
       

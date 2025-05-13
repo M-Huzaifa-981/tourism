@@ -5,6 +5,7 @@ import 'package:tourism/screens/editor_pick_screen.dart';
 import 'package:tourism/screens/feature_resorts_screen.dart';
 import 'package:tourism/screens/feed_screen.dart';
 import 'package:tourism/screens/home_screen.dart';
+import 'package:tourism/screens/profile_screen.dart';
 import 'package:tourism/screens/restaurant_menu_screen.dart';
 import 'package:tourism/utils/app_colors.dart';
 
@@ -23,7 +24,9 @@ class _MainNavState extends State<MainNav> {
     FeatureResortsScreen(),
     FeedScreen(),
     RestaurantMenuScreen(),
-    EditorPickScreen(),
+    // EditorPickScreen(),
+    ProfileScreen()
+
   ];
 
   @override

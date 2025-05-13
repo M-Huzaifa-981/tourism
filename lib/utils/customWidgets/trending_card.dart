@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:tourism/screens/customers_gallery.dart';
@@ -10,6 +12,8 @@ class TrendingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Random random = Random();
+    int myRandomNo = random.nextInt(8);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       // margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.1),
@@ -30,7 +34,7 @@ class TrendingCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image(
-                    image: AssetImage(Assets.assetsPic0),
+                    image: AssetImage('assets/images/img$myRandomNo.jpg'),
                     height: 700,
                     fit: BoxFit.cover,
                   ),
@@ -106,20 +110,24 @@ class TrendingCard extends StatelessWidget {
                 top: 10,
                 right: 15,
                 child: Container(
-                  height: 70,
-                  width: 70,
+                  height: 60,
+                  width: 60,
                   decoration: BoxDecoration(
                     color: Colors.red,
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Icon(Icons.bolt_rounded, color: Colors.white, size: 60),
+                  child: Icon(Icons.bolt_rounded, color: Colors.white, size: 50),
                 ),
               ),
               Align(
                 alignment: Alignment(-0.7,0.95),
                 child: FlutterImageStack.providers(
                   // itemBorderColor: Colors.transparent,
-                  itemRadius: 80,
+                  backgroundColor: Colors.transparent,
+                  showTotalCount: false,
+                  itemBorderWidth: 0.5,
+                  itemBorderColor: Colors.grey,
+                  itemRadius: 50,
                   providers: [
                     ExactAssetImage(Assets.assetsPic1),
                     ExactAssetImage(Assets.assetsPic1),

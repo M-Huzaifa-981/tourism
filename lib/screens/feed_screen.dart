@@ -67,7 +67,7 @@ class FeedScreen extends StatelessWidget {
                 child: TabBarView(
                   physics: NeverScrollableScrollPhysics(),
                   children: [
-                    FirstScreen(),
+                    ThingsToDoScreen(),
                     TrendingResortsScreen(),
                     FavDestinationScreen(),
                     FoodScreen(),
