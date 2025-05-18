@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
-import 'package:tourism/utils/app_colors.dart';
-import 'package:tourism/utils/customWidgets/trending_card.dart';
+import 'package:tourism/utils/customWidgets/cards/trending_card.dart';
 
 import '../generated/assets.dart';
 
@@ -10,22 +9,35 @@ class TrendingResortsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      // appBar: AppBar(
-      //   title: Text('RESORTS'),
-      //   centerTitle: true,
-      //   actions: [IconButton(onPressed: null, icon: Icon(Icons.search))],
-      // ),
-      body: PageView(
-        scrollDirection: Axis.vertical,
-        physics: PageScrollPhysics(),
-        children: [
-          TrendingCard(),
-          TrendingCard(),
-          TrendingCard(),
-          TrendingCard(),
-        ],
+    return Material(
+      child: SafeArea(
+        child: Column(
+          children: [
+            AppBar(
+              title: Text('RESORTS'),
+              centerTitle: true,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios),
+              ),
+              actions: [IconButton(onPressed: null, icon: Icon(Icons.search))],
+            ),
+            
+            Expanded(
+              child: ListView(
+                physics: PageScrollPhysics(),
+                children: [
+                  TrendingCard(),
+                  TrendingCard(),
+                  TrendingCard(),
+                  TrendingCard(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

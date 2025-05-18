@@ -4,6 +4,16 @@ class Assets {
   static List<String> images = List.generate(9, (index) {
     return 'assets/images/img$index.jpg';
   });
+  static List<String> profileImage = List.generate(3, (index) {
+    return 'assets/profile/img$index.jpg';
+  });
+
+  static List<String> restaurantsImage = List.generate(7, (index) {
+    return 'assets/restaurants/img$index.jpg';
+  });
+
+
+
   static const String assetsPic0 = 'assets/images/img0.jpg';
   static const String assetsPic1 = 'assets/images/img1.jpg';
   static const String assetsPic2 = 'assets/images/img2.jpg';

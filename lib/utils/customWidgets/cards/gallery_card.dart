@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import '../../generated/assets.dart';
+
+import '../../../generated/assets.dart';
 
 Widget galleryCard({required String title, required String subtitle ,required int items}){
   bool tByt = items==2 || items == 4;

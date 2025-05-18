@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../generated/assets.dart';
-import '../utils/customWidgets/gallery_card.dart';
+import '../utils/customWidgets/cards/gallery_card.dart';
 
 class CustomersGallery extends StatelessWidget {
   CustomersGallery({super.key});
@@ -32,13 +32,14 @@ class CustomersGallery extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
           children: [
+
             Padding(
               padding: EdgeInsets.symmetric(vertical: 22),
               child: Text(
                 "Customer's Gallery",
                 style: TextStyle(
                   color: Colors.green,
-                  fontSize: 40,
+                  fontSize: 33,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -47,6 +48,7 @@ class CustomersGallery extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                 itemCount: galleries.length,
+
                 separatorBuilder: (_, __) => const Divider(),
                 itemBuilder: (context, index) {
                   final gallery = galleries[index];

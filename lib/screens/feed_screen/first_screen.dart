@@ -1,21 +1,37 @@
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 
-import '../../utils/customWidgets/feed_card.dart';
+import '../../generated/assets.dart';
+import '../../utils/customWidgets/cards/feed_card.dart';
 
-class ThingsToDoScreen extends StatelessWidget {
-  const ThingsToDoScreen({super.key});
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0XFF17c69b),
-
-      body: PageView(
+    final Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
+     return Container(
+      // backgroundColor: Color(0XFF17c69b),
+      child: PageView.builder(
         scrollDirection: Axis.vertical,
-        // dragStartBehavior: DragStartBehavior.start,
-        physics: PageScrollPhysics(),
-        children: [FeedCard(picNo: 2,), FeedCard(picNo: 4,), FeedCard(picNo: 6,), FeedCard(picNo: 1,)],
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child:
+             // FeedCard(),
+            feedCard(
+              image: Assets.images[index],
+              size: Size(width, height),
+              badgePosition: badges.BadgePosition.bottomEnd(bottom: -22, end: 15),
+              hashtags: ["#tag1", "#tag2", "#tag3", "#tag4"],
+            ),
+          );
+        },
       ),
     );
+
   }
 }

@@ -22,7 +22,7 @@ Widget bookingCard({required Size size}) {
         color: Colors.white,
         borderRadius: BorderRadius.circular(11),
         boxShadow: [
-          BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 3)),
+          BoxShadow(color: Colors.black26, blurRadius: 7, offset: Offset(0, 3)),
         ],
       ),
       child: Column(
@@ -126,3 +126,9 @@ Widget bookingCard({required Size size}) {
     ),
   );
 }
+
+
+
+
+
+

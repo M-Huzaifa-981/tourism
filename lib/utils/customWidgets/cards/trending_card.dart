@@ -1,19 +1,14 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
 import 'package:tourism/screens/customers_gallery.dart';
-import 'package:tourism/screens/favorite_resorts_screen/fav_destination_screen.dart';
 
-import '../../generated/assets.dart';
+import '../../../generated/assets.dart';
 
 class TrendingCard extends StatelessWidget {
   const TrendingCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Random random = Random();
-    int myRandomNo = random.nextInt(8);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       // margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.1),
@@ -21,7 +16,7 @@ class TrendingCard extends StatelessWidget {
       decoration: BoxDecoration(),
       child: InkWell(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> FavDestinationScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> CustomersGallery()));
         },
         child: Material(
           elevation: 50,
@@ -34,7 +29,7 @@ class TrendingCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image(
-                    image: AssetImage('assets/images/img$myRandomNo.jpg'),
+                    image: AssetImage(Assets.assetsPic0),
                     height: 700,
                     fit: BoxFit.cover,
                   ),
@@ -110,24 +105,20 @@ class TrendingCard extends StatelessWidget {
                 top: 10,
                 right: 15,
                 child: Container(
-                  height: 60,
-                  width: 60,
+                  height: 70,
+                  width: 70,
                   decoration: BoxDecoration(
                     color: Colors.red,
                     borderRadius: BorderRadius.circular(50),
                   ),
-                  child: Icon(Icons.bolt_rounded, color: Colors.white, size: 50),
+                  child: Icon(Icons.bolt_rounded, color: Colors.white, size: 60),
                 ),
               ),
               Align(
                 alignment: Alignment(-0.7,0.95),
                 child: FlutterImageStack.providers(
                   // itemBorderColor: Colors.transparent,
-                  backgroundColor: Colors.transparent,
-                  showTotalCount: false,
-                  itemBorderWidth: 0.5,
-                  itemBorderColor: Colors.grey,
-                  itemRadius: 50,
+                  itemRadius: 80,
                   providers: [
                     ExactAssetImage(Assets.assetsPic1),
                     ExactAssetImage(Assets.assetsPic1),
