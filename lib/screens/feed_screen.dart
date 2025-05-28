@@ -1,42 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:tourism/utils/constants/app_colors.dart';
 
-import 'feed_screen/first_screen.dart';
-import 'feed_screen/fourth_screen.dart';
-import 'feed_screen/second_screen.dart';
-import 'feed_screen/third_screen.dart';
+import 'feed_screen/things_to_do_tab.dart';
+import 'feed_screen/food_tab.dart';
+import 'feed_screen/flights_tab.dart';
+import 'feed_screen/hotels_tab.dart';
 
-class FeedScreen extends StatelessWidget {
+class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});
 
   @override
+  State<FeedScreen> createState() => _FeedScreenState();
+}
+
+final List<Widget> _tabBarScreens = [
+  ThingsToDoTab(),
+  FlightsTab(),
+  HotelsTab(),
+  FoodsTab(),
+];
+int myIndex = 0;
+
+class _FeedScreenState extends State<FeedScreen> {
+  @override
   Widget build(BuildContext context) {
     return Container(
+      color: Theme.of(context).scaffoldBackgroundColor,
       child: Column(
         children: [
-
           AppBar(
             centerTitle: true,
-            backgroundColor: AppColors.normalGreenColor,
-            title: Text('FEED',style: TextStyle(fontWeight: FontWeight.w500, color: AppColors.whiteColor)),
+            // backgroundColor: AppColors.normalGreenColor,
+            title: Text(
+              'Feed',
+              // style: TextStyle(
+              //   fontWeight: FontWeight.w500,
+              //   color: AppColors.whiteColor,
+              // ),
+            ),
             // leading: IconButton(
             //   onPressed: () {
             //     Navigator.pop(context);
             //   },
             //   icon: Icon(Icons.arrow_back_ios),
             // ),
-            actions: [
-              IconButton(
-                onPressed: null,
-                icon: Icon(Icons.search),
-              ),
-            ],
+            actions: [IconButton(onPressed: null, icon: Icon(Icons.search))],
           ),
-
 
           Expanded(
             child: Container(
-              color: AppColors.normalGreenColor,
+              color: Theme.of(context).scaffoldBackgroundColor,
               child: DefaultTabController(
                 length: 4,
                 child: Column(
@@ -47,25 +60,36 @@ class FeedScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 9),
                       child: Text(
                         'Your Feed',
-                        style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500, color: AppColors.whiteColor),
+                        style: TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500,
+                          color: Theme.of(context).cardColor,
+                        ),
                       ),
                     ),
                     TabBar(
                       // indicatorSize: TabBarIndicatorSize.tab,
-                      labelColor: AppColors.darkGreenColor,
-                      indicatorColor: AppColors.darkGreenColor,
+                      labelColor: Theme.of(context).cardColor,
+                      indicatorColor: Theme.of(
+                        context,
+                      ).primaryColor.withValues(alpha: 1),
                       dividerColor: Colors.transparent,
                       labelPadding: EdgeInsets.symmetric(
                         horizontal: 11,
                         vertical: 11,
                       ),
-                      unselectedLabelColor: AppColors.whiteColor,
+                      unselectedLabelColor: Theme.of(context).primaryColorLight,
                       tabAlignment: TabAlignment.start,
                       isScrollable: true,
                       labelStyle: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 17,
                       ),
+                      onTap: (val) {
+                        setState(() {
+                          myIndex = val;
+                        });
+                      },
                       tabs: [
                         Text('Things To Do'),
                         Text('Flights'),
@@ -75,13 +99,9 @@ class FeedScreen extends StatelessWidget {
                     ),
                     Flexible(
                       // fit: FlexFit.loose,
-                      child: TabBarView(
-                        children: [
-                          FirstScreen(),
-                          SecondScreen(),
-                          ThirdScreen(),
-                          FourthScreen(),
-                        ],
+                      child: IndexedStack(
+                        index: myIndex,
+                        children: _tabBarScreens,
                       ),
                     ),
                   ],
@@ -89,10 +109,6 @@ class FeedScreen extends StatelessWidget {
               ),
             ),
           ),
-
-
-
-
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tourism/screens/restaurant_menu_screen.dart';
 
 import '../generated/assets.dart';
@@ -40,19 +41,19 @@ class DiscoverScreen extends StatelessWidget {
     final height = size.height;
 
     return Material(
-
+      color: Theme.of(context).scaffoldBackgroundColor,
       child: SafeArea(
         child: Column(
           children: [
             AppBar(
               centerTitle: true,
-              title: Text("DISCOVER"),
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back_ios),
-              ),
+              title: Text("Discover"),
+              // leading: IconButton(
+              //   onPressed: () {
+              //     Navigator.pop(context);
+              //   },
+              //   icon: Icon(Icons.arrow_back_ios),
+              // ),
             ),
 
             Expanded(
@@ -67,7 +68,8 @@ class DiscoverScreen extends StatelessWidget {
                   return Container(
                     child: InkWell(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> RestaurantMenuScreen()));
+                        // Navigator.push(context, MaterialPageRoute(builder: (context)=> RestaurantMenuScreen()));
+                        Get.to(RestaurantMenuScreen());
                       },
                       child: imageInfoCard(
                         imageCardInfo: cardData,
@@ -77,8 +79,8 @@ class DiscoverScreen extends StatelessWidget {
                         imageSize: Size(width, height / 4.3),
                         linearGradient: LinearGradient(
                           colors: [
-                            colors[index].withOpacity(0.1),
-                            colors[index].withOpacity(0.9),
+                            colors[index].withValues(alpha: 0.15),
+                            colors[index].withValues(alpha: 0.8),
                           ],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,

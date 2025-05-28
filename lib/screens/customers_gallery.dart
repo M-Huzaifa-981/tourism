@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../generated/assets.dart';
 import '../utils/customWidgets/cards/gallery_card.dart';
 
 class CustomersGallery extends StatelessWidget {
@@ -17,8 +15,8 @@ class CustomersGallery extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey.withValues(alpha: 0.1),
-        centerTitle: true,
+        // backgroundColor: Colors.grey.withValues(alpha: 0.1),
+        // centerTitle: true,
         title: Text("Gallery"),
         leading: IconButton(
           onPressed: () {
@@ -32,13 +30,12 @@ class CustomersGallery extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 22),
         child: Column(
           children: [
-
             Padding(
               padding: EdgeInsets.symmetric(vertical: 22),
               child: Text(
                 "Customer's Gallery",
                 style: TextStyle(
-                  color: Colors.green,
+                  color: Theme.of(context).cardColor,
                   fontSize: 33,
                   fontWeight: FontWeight.w500,
                 ),

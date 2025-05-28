@@ -1,15 +1,198 @@
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
-import 'package:tourism/screens/customers_gallery.dart';
 
 import '../../../generated/assets.dart';
+import '../../constants/app_colors.dart';
 
 class TrendingCard extends StatelessWidget {
-  const TrendingCard({super.key});
+  const TrendingCard({
+    super.key,
+    required this.titleText,
+    required this.image,
+    required this.onTap,
+  });
+
+  final String titleText;
+  final String image;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final Size size = MediaQuery.of(context).size;
+    double height = size.height;
+    double width = size.width;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Material(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: Container(
+          // color: Colors.black.withValues(alpha: 0.03),
+          width: width,
+          height: height,
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  width: width,
+                  height: height,
+                  padding: EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                    top: 15,
+                    bottom: 10,
+                  ),
+                  // decoration: BoxDecoration(color: Colors.blue.shade200),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: badges.Badge(
+                          position: badges.BadgePosition.topEnd(
+                            end: 10,
+                            top: -15,
+                          ),
+                          badgeContent: Icon(
+                            Icons.favorite,
+                            color: Colors.white,
+                            size: 33,
+                          ),
+                          badgeStyle: badges.BadgeStyle(
+                            shape: badges.BadgeShape.circle,
+                            // badgeColor: Colors.redAccent,
+                            badgeColor: Theme.of(context).primaryColorDark,
+                            elevation: 4,
+                            padding: EdgeInsets.all(8),
+                          ),
+                          child: Container(
+                            width: width,
+                            height: height,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withValues(alpha: 0.5),
+                                  blurRadius: 8,
+                                  offset: Offset(4, 4),
+                                ),
+                              ],
+                              borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(22),
+                                bottom: Radius.circular(22),
+                              ),
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage(image),
+                              ),
+                            ),
+                            alignment: Alignment.bottomLeft,
+                            child: Container(
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    alignment: Alignment.bottomLeft,
+                                    width: width,
+                                    height: height,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          AppColors.primaryColor.withValues(
+                                            alpha: 0.5,
+                                          ),
+                                          Colors.transparent,
+                                        ],
+                                        begin: Alignment.bottomLeft,
+                                        end: Alignment.topRight,
+                                      ),
+                                    ),
+                                    // child: Text('data'),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(20),
+                                    child: Column(
+                                      spacing: 20,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          titleText,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 35,
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            ...List.generate(
+                                              5,
+                                              (index) => Icon(
+                                                Icons.star,
+                                                color: Colors.yellow,
+                                              ),
+                                            ),
+                                            SizedBox(width: 30),
+                                            Text(
+                                              'Reviews',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Hawaii',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            FlutterImageStack.providers(
+                                              // itemBorderColor: Colors.transparent,
+                                              itemRadius: width / 9,
+                                              providers: List.generate(
+                                                5,
+                                                (index) => ExactAssetImage(
+                                                  Assets.images[index],
+                                                ),
+                                              ),
+                                              totalCount: 4,
+                                              itemBorderColor:
+                                                  AppColors.primaryColor,
+                                              itemBorderWidth: 0.5,
+                                              itemCount: 4,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/*
+* Container(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       // margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*0.1),
       height: MediaQuery.of(context).size.height*0.86,
@@ -132,6 +315,4 @@ class TrendingCard extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
+    )*/

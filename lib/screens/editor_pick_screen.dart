@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourism/screens/feature_resorts_screen.dart';
+
 import '../models/imageCardInfo.dart';
 import '../utils/constants/app_colors.dart';
 import '../utils/customWidgets/buttons/discover_button.dart';
@@ -14,14 +15,14 @@ class EditorPickScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     double width = size.width;
-    double height = size.height;
 
     return Material(
+      color: Theme.of(context).scaffoldBackgroundColor,
       child: SafeArea(
         child: Column(
           children: [
             AppBar(
-              title: Text("RESORTS"),
+              title: Text("Resorts"),
               centerTitle: true,
               // leading: IconButton(
               //   onPressed: () {
@@ -30,7 +31,7 @@ class EditorPickScreen extends StatelessWidget {
               //   icon: Icon(Icons.arrow_back_ios),
               // ),
             ),
-        
+      
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
@@ -39,15 +40,14 @@ class EditorPickScreen extends StatelessWidget {
                   // scrollDirection: Axis.vertical,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-        
                     Container(
-                      margin: EdgeInsets.symmetric( horizontal: 7,vertical: 7),
+                      margin: EdgeInsets.symmetric(horizontal: 7, vertical: 7),
                       child: Text(
                         "Editor's Picks",
-                        style: TextStyle(fontSize: 33, color: Colors.green),
+                        style: TextStyle(fontSize: 33, color: Theme.of(context).cardColor),
                       ),
                     ),
-        
+      
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 7),
                       child: Wrap(
@@ -55,7 +55,7 @@ class EditorPickScreen extends StatelessWidget {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 5),
                             child: Text(
-                              "FEATURE RESORTS",
+                              "FEATURED RESORTS",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -77,7 +77,9 @@ class EditorPickScreen extends StatelessWidget {
                                     linearGradient: LinearGradient(
                                       colors: [
                                         Colors.transparent,
-                                        AppColors.lightGreenColor.withOpacity(0.5),
+                                        AppColors.lightGreenColor.withOpacity(
+                                          0.5,
+                                        ),
                                       ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
@@ -89,12 +91,12 @@ class EditorPickScreen extends StatelessWidget {
                               }),
                             ),
                           ),
-        
+      
                           Container(
                             child: Row(
-                              children: List.generate(4, (i){
-                                return  Container(
-                                  width: i==0? 30 : 10,
+                              children: List.generate(4, (i) {
+                                return Container(
+                                  width: i == 0 ? 30 : 10,
                                   height: 10,
                                   margin: EdgeInsets.all(5),
                                   decoration: BoxDecoration(
@@ -103,17 +105,14 @@ class EditorPickScreen extends StatelessWidget {
                                   ),
                                 );
                               }),
-        
                             ),
                           ),
-        
                         ],
                       ),
                     ),
-        
-                    SizedBox(height: 11,),
-        
-        
+      
+                    SizedBox(height: 11),
+      
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -124,16 +123,19 @@ class EditorPickScreen extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
-        
-                        ...List.generate(9, (index){
+      
+                        ...List.generate(9, (index) {
                           return Card(
-                            margin: EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 7,
+                              vertical: 5,
+                            ),
                             child: ListTile(
                               leading: Container(
                                 width: 66,
                                 height: 66,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(7),
+                                  // borderRadius: BorderRadius.circular(7),
                                   image: DecorationImage(
                                     image: AssetImage(
                                       "$imagePath/img$index.jpg",
@@ -142,28 +144,28 @@ class EditorPickScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-        
+      
                               title: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     "Richard's River Camp",
                                     style: TextStyle(
+                                      fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text("Hawaii"),
                                 ],
                               ),
-        
+      
                               subtitle: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 spacing: 5,
                                 children: [
                                   Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Text("⭐⭐⭐⭐ \t "),
                                       Text(
@@ -183,29 +185,31 @@ class EditorPickScreen extends StatelessWidget {
                             ),
                           );
                         }),
-        
                       ],
                     ),
-        
+      
                     Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 7,
-                        vertical: 22,
-                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 7, vertical: 22),
                       child: Row(
                         children: [
                           Expanded(
                             child: discoverButton(
+                              btnText: 'Discover More',
                               context: context,
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> FeatureResortsScreen())); //DiscoverScreen
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => FeatureResortsScreen(),
+                                  ),
+                                ); //DiscoverScreen
                               },
-                            )
+                            ),
                           ),
                         ],
                       ),
                     ),
-        
                   ],
                 ),
               ),

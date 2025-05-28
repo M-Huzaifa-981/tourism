@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tourism/screens/feed_screen/second_screen.dart';
-import 'package:tourism/screens/feed_screen/third_screen.dart';
+import 'package:tourism/screens/feed_screen/flights_tab.dart';
+import 'package:tourism/screens/feed_screen/hotels_tab.dart';
 
-import 'first_screen.dart';
-import 'fourth_screen.dart';
+import 'things_to_do_tab.dart';
+import 'food_tab.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({super.key});
@@ -55,10 +55,10 @@ class FeedScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(
                 children: [
-                  FirstScreen(),
-                  SecondScreen(),
-                  ThirdScreen(),
-                  FourthScreen(),
+                  ThingsToDoTab(),
+                  FlightsTab(),
+                  HotelsTab(),
+                  FoodsTab(),
                 ],
               ),
             ),

@@ -13,13 +13,14 @@ class FavoriteResortScreen extends StatelessWidget {
     final width = size.width;
     return Scaffold(
       appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.arrow_back_ios),
-          ),
-          title: Text('Resorts'), centerTitle: true
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
+        title: Text('Resorts'),
+        centerTitle: true,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
@@ -85,7 +86,7 @@ class FavoriteResortScreen extends StatelessWidget {
                   ),
                   Align(
                     alignment: Alignment(0, 0.7),
-                    child: bookingCard(size: Size(390, 222)),
+                    child: bookingCard(size: Size(390, 222), context: context),
                   ),
                 ],
               ),

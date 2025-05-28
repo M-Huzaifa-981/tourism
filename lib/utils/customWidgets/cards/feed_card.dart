@@ -7,29 +7,29 @@ Widget feedCard({
   required String image,
   required List<String> hashtags,
   required badges.BadgePosition badgePosition,
+  required VoidCallback onTap,
+  required BuildContext context,
 }) {
   double width = size.width;
   double height = size.height;
 
-  return  Container(
+  return Container(
     width: width,
     height: height,
     margin: EdgeInsets.only(bottom: 15),
     child: Column(
       children: [
-        SizedBox(height: 11),
-
+        // SizedBox(height: 11),
         Container(
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.all(7),
           child: Text(
             hashtags.join(', '),
             style: TextStyle(
-              color: Colors.white,
+              // color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
-
           ),
         ),
 
@@ -49,8 +49,6 @@ Widget feedCard({
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
-
                 Expanded(
                   child: badges.Badge(
                     position: badgePosition,
@@ -61,7 +59,8 @@ Widget feedCard({
                     ),
                     badgeStyle: badges.BadgeStyle(
                       shape: badges.BadgeShape.circle,
-                      badgeColor: Colors.redAccent,
+                      // badgeColor: Colors.redAccent,
+                      badgeColor: Theme.of(context).primaryColorDark,
                       elevation: 4,
                       padding: EdgeInsets.all(8),
                     ),
@@ -69,34 +68,46 @@ Widget feedCard({
                       width: width,
                       // height: height * 0.3,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(11)),
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(11),
+                        ),
                         // color: Colors.amber,
-                        image: DecorationImage(image: AssetImage(image),
-                            fit: BoxFit.cover),
+                        image: DecorationImage(
+                          image: AssetImage(image),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
                 ),
 
-
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 15,
+                  ),
                   child: Text(
-                        'Pakistan\'s Best Foodie Cities',
-                        style: TextStyle(
-                          fontSize: 27,
-                          color: Color(0XFF39c8a5),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    'Pakistan\'s Best Foodie Cities',
+                    style: TextStyle(
+                      fontSize: 27,
+                      // color: Color(0XFF39c8a5),
+                      color: Theme.of(context).cardColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
 
-
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 11,
+                  ),
                   decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(11))
+                    // color: Colors.grey.shade200,
+                    color: Theme.of(context).primaryColorDark,
+                    borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(11),
+                    ),
                   ),
                   child: Row(
                     children: [
@@ -105,9 +116,11 @@ Widget feedCard({
                         itemRadius: 44,
                         totalCount: 5,
                         providers: [
-                          ...List.generate(5, (index){
-                            return ExactAssetImage('assets/images/img$index.jpg');
-                          })
+                          ...List.generate(5, (index) {
+                            return ExactAssetImage(
+                              'assets/images/img$index.jpg',
+                            );
+                          }),
                         ],
                       ),
                       SizedBox(width: 6),
@@ -127,12 +140,10 @@ Widget feedCard({
             ),
           ),
         ),
-
       ],
     ),
   );
 }
-
 
 // class FeedCard extends StatelessWidget {
 //   const FeedCard({super.key});
