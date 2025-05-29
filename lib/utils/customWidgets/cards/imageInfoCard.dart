@@ -65,7 +65,7 @@ Widget imageInfoCard({
                     children: [
                       Expanded(
                         child: Text(
-                          imageCardInfo.subtitle ?? "",
+                          "${imageCardInfo.subtitle}",
                           overflow: TextOverflow.fade,
                           maxLines: 1,
                           softWrap: false,
