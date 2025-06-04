@@ -1,11 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/screens/restaurant_menu_screen.dart';
+import '../utils/app_packages.dart';
 
-import '../generated/assets.dart';
-import '../models/imageCardInfo.dart';
-import '../utils/customWidgets/cards/imageInfoCard.dart';
 
 class DiscoverScreen extends StatelessWidget {
   DiscoverScreen({super.key});

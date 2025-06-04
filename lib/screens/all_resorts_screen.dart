@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import '../utils/app_packages.dart';
+
 
 class AllResortsScreen extends StatelessWidget {
   const AllResortsScreen({super.key});

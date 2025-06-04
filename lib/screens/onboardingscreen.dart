@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import '../utils/app_packages.dart';
 
-import '../models/onboardmodel.dart';
-import '../utils/clippers/onboard_clipper.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key, required this.data});

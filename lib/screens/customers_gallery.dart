@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 
-import '../utils/customWidgets/cards/gallery_card.dart';
+import '../utils/app_packages.dart';
+
 
 class CustomersGallery extends StatelessWidget {
   CustomersGallery({super.key});

@@ -1,11 +1,5 @@
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:tourism/screens/editor_pick_screen.dart';
-import 'package:tourism/screens/feed_screen.dart';
-import 'package:tourism/screens/home_screen.dart';
-import 'package:tourism/screens/top_destinations.dart';
-import 'package:tourism/screens/trending_resorts_screen.dart';
-import 'package:tourism/utils/constants/app_colors.dart';
+import '../utils/app_packages.dart';
+
 
 class MainNav extends StatefulWidget {
   const MainNav({super.key});

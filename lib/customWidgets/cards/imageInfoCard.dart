@@ -17,6 +17,7 @@ Widget imageInfoCard({
   required LinearGradient linearGradient,
 }) {
   return SingleChildScrollView(
+    scrollDirection: Axis.horizontal,
     child: Column(
       crossAxisAlignment: infoAlign,
       children: [
@@ -41,10 +42,11 @@ Widget imageInfoCard({
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
                 if (imageCardInfo.heading != null)
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
                       Text(
                         imageCardInfo.heading ?? "",
                         overflow: TextOverflow.fade,
@@ -56,37 +58,38 @@ Widget imageInfoCard({
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ],
-                  ),
+                  ],
+                ),
 
                 if (imageCardInfo.subtitle != null)
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                       Expanded(
-                        child: Text(
-                          "${imageCardInfo.subtitle}",
-                          overflow: TextOverflow.fade,
-                          maxLines: 1,
-                          softWrap: false,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: subTitleSize,
-                            fontWeight: FontWeight.w400,
-                          ),
+                      child: Text(
+                        imageCardInfo.subtitle ?? "",
+                        overflow: TextOverflow.fade,
+                        maxLines: 1,
+                        softWrap: false,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: subTitleSize,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
-                      if (onTap != null)
-                        InkWell(
-                          onTap: onTap,
-                          child: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
-                            size: subTitleSize + 5,
-                          ),
+                    ),
+                    if (onTap != null)
+                      InkWell(
+                        onTap: onTap,
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                          size: subTitleSize+5,
                         ),
-                    ],
-                  ),
+                      ),
+                  ],
+                ),
+
               ],
             ),
           ),
@@ -99,14 +102,8 @@ Widget imageInfoCard({
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    4,
-                    (i) => Icon(
-                      Icons.star_border,
-                      color: AppColors.darkOrangeColor,
-                    ),
-                  ),
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: List.generate(4, (i)=> Icon(Icons.star_border, color: AppColors.darkOrangeColor,)),
                 ),
                 Text(
                   "4.8 (512 Reviews)",

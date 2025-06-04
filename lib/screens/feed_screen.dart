@@ -1,10 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:tourism/utils/constants/app_colors.dart';
 
-import 'feed_screen/things_to_do_tab.dart';
-import 'feed_screen/food_tab.dart';
-import 'feed_screen/flights_tab.dart';
-import 'feed_screen/hotels_tab.dart';
+import '../utils/app_packages.dart';
+
 
 class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});

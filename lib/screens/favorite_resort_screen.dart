@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:tourism/utils/constants/app_colors.dart';
 
-import '../generated/assets.dart';
-import '../utils/customWidgets/cards/booking_card.dart';
+import '../utils/app_packages.dart';
+
 
 class FavoriteResortScreen extends StatelessWidget {
   const FavoriteResortScreen({super.key});

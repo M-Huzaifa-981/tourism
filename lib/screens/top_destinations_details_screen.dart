@@ -1,10 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/generated/assets.dart';
-import 'package:tourism/main_nav.dart';
-import 'package:tourism/utils/customWidgets/cards/booking_card.dart';
+import '../utils/app_packages.dart';
 
-import '../utils/customWidgets/buttons/discover_button.dart';
 
 class TopDestinationsDetailScreen extends StatelessWidget {
   const TopDestinationsDetailScreen({super.key});

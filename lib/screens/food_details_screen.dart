@@ -1,9 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:tourism/generated/assets.dart';
-import 'package:tourism/utils/constants/strings.dart';
-import 'package:tourism/utils/customWidgets/buttons/discover_button.dart';
+import '../utils/app_packages.dart';
 
-import '../utils/clippers/endborder_clipper.dart';
 
 class FoodDetailsScreen extends StatelessWidget {
   const FoodDetailsScreen({super.key});

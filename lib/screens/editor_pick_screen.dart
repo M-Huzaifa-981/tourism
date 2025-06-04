@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:tourism/screens/feature_resorts_screen.dart';
 
-import '../models/imageCardInfo.dart';
-import '../utils/constants/app_colors.dart';
-import '../utils/customWidgets/buttons/discover_button.dart';
-import '../utils/customWidgets/cards/imageInfoCard.dart';
+import '../utils/app_packages.dart';
+
+
 
 class EditorPickScreen extends StatelessWidget {
   const EditorPickScreen({super.key});

@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:tourism/generated/assets.dart';
-import 'package:tourism/utils/constants/strings.dart';
-import 'package:tourism/utils/customWidgets/cards/trending_card.dart';
+import '../../utils/app_packages.dart';
+
 
 class HotelsTab extends StatelessWidget {
   const HotelsTab({super.key});

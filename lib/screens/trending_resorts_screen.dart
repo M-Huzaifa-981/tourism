@@ -1,12 +1,5 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/screens/top_destinations_details_screen.dart';
-import 'package:tourism/utils/constants/app_colors.dart';
-import 'package:tourism/utils/constants/strings.dart';
-import 'package:tourism/utils/customWidgets/cards/trending_card.dart';
+import '../utils/app_packages.dart';
 
-import '../generated/assets.dart';
 
 class TrendingResortsScreen extends StatelessWidget {
   const TrendingResortsScreen({super.key});

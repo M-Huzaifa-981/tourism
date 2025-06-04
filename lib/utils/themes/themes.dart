@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 class MyCustomThemes {
   MyCustomThemes._();
 
-  static const Color light_green1 = Color(0xFF99CDA9);
+  static const Color light_green1 = Color(0xFF67AE6E);
   static const Color light_green2 = Color(0xFFD1E9D2);
   static const Color light_green3 = Color(0xFFE5F4E7);
   static const Color light_green4 = Color(0xFFF1FDF3);
@@ -17,10 +17,10 @@ class MyCustomThemes {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
 
-    primaryColor: light_green3,
+    primaryColor: light_green1,
     cardColor: light_green1,
-    primaryColorDark: light_green1,
-    primaryColorLight: light_green2,
+    primaryColorDark: dark_green1,
+    primaryColorLight: light_green1,
 
     scaffoldBackgroundColor: light_green4,
 
@@ -41,7 +41,7 @@ class MyCustomThemes {
     listTileTheme: ListTileThemeData(
       tileColor: light_green2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadiusGeometry.circular(12),
+        borderRadius: BorderRadius.circular(12),
       ),
     ),
     snackBarTheme: SnackBarThemeData(
@@ -49,7 +49,7 @@ class MyCustomThemes {
       contentTextStyle: TextStyle(color: Colors.white),
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadiusGeometry.circular(50),
+        borderRadius: BorderRadius.circular(50),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -89,7 +89,7 @@ class MyCustomThemes {
     listTileTheme: ListTileThemeData(
       tileColor: dark_green2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadiusGeometry.circular(12),
+        borderRadius: BorderRadius.circular(12),
       ),
     ),
     snackBarTheme: SnackBarThemeData(
@@ -97,7 +97,7 @@ class MyCustomThemes {
       contentTextStyle: TextStyle(color: Colors.white),
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadiusGeometry.circular(50),
+        borderRadius: BorderRadius.circular(50),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(

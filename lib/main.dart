@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:tourism/main_nav.dart';
 import 'package:tourism/screens/welcome_screen.dart';
-import 'package:tourism/utils/themes/themes.dart';
+import '../utils/app_packages.dart';
+
 
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +18,8 @@ class MyApp extends StatelessWidget {
       darkTheme: MyCustomThemes.darkTheme,
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(), // dashboard
+      // home: WelcomeScreen(), // dashboard
+      home: MainNav(), // dashboard
     );
   }
 }

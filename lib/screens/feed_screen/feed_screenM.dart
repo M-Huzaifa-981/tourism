@@ -1,12 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:tourism/screens/feed_screen/flights_tab.dart';
-import 'package:tourism/screens/feed_screen/hotels_tab.dart';
 
-import 'things_to_do_tab.dart';
-import 'food_tab.dart';
+import '../../utils/app_packages.dart';
 
-class FeedScreen extends StatelessWidget {
-  const FeedScreen({super.key});
+
+class FeedScreenM extends StatelessWidget {
+  const FeedScreenM({super.key});
 
   @override
   Widget build(BuildContext context) {

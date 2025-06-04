@@ -1,10 +1,7 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/generated/assets.dart';
-import 'package:tourism/screens/food_details_screen.dart';
 
-import '../utils/customWidgets/cards/food_card.dart';
+import '../utils/app_packages.dart';
+
+
 
 class FoodScreen extends StatelessWidget {
   const FoodScreen({super.key});
@@ -51,3 +48,5 @@ class FoodScreen extends StatelessWidget {
     );
   }
 }
+
+

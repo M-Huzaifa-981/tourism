@@ -1,20 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/screens/all_resorts_screen.dart';
-import 'package:tourism/screens/food_screen.dart';
-import 'package:tourism/screens/top_destinations.dart';
-import 'package:tourism/screens/top_destinations_details_screen.dart';
-import 'package:tourism/screens/trending_resorts_screen.dart';
-import 'package:tourism/utils/customWidgets/cards/carousel.dart';
+import '../utils/app_packages.dart';
 
-import '../generated/assets.dart';
-import '../models/imageCardInfo.dart';
-import '../utils/clippers/home_clipper.dart';
-import '../utils/constants/app_colors.dart';
-import '../utils/customWidgets/buttons/discover_button.dart';
-import '../utils/customWidgets/cards/imageInfoCard.dart';
-import 'favorite_resort_screen.dart';
+
 
 class FeatureResortsScreen extends StatelessWidget {
   const FeatureResortsScreen({super.key});

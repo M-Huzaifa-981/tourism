@@ -1,6 +1,5 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
-import 'package:tourism/utils/themes/themes.dart';
 
 Widget bookingCard({required Size size, required BuildContext context}) {
   double width = size.width;
@@ -11,8 +10,8 @@ Widget bookingCard({required Size size, required BuildContext context}) {
     onTap: () {},
     badgeContent: Icon(Icons.flash_on, color: Colors.white, size: 33),
     badgeStyle: badges.BadgeStyle(
-      // shape: badges.BadgeShape.square,
-      badgeColor: Theme.of(context).primaryColorDark,
+      shape: badges.BadgeShape.square,
+      badgeColor: Colors.red,
       borderRadius: BorderRadius.circular(100),
       elevation: 0,
     ),
@@ -28,15 +27,13 @@ Widget bookingCard({required Size size, required BuildContext context}) {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
         children: [
-          // Spacer(),
           Container(
             margin: EdgeInsets.all(12),
             alignment: Alignment.centerLeft,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: width / 100,
+              spacing: width / 99,
               children: [
                 Text(
                   "Booking Available",
@@ -76,7 +73,7 @@ Widget bookingCard({required Size size, required BuildContext context}) {
                   width: (width - 22) * 0.25,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: MyCustomThemes.light_green2,
+                    color: Colors.black87,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(11),
                     ),
@@ -84,7 +81,7 @@ Widget bookingCard({required Size size, required BuildContext context}) {
                   child: Text(
                     "4.8",
                     style: TextStyle(
-                      color: MyCustomThemes.light_green1.withValues(green: 70),
+                      color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
@@ -97,14 +94,12 @@ Widget bookingCard({required Size size, required BuildContext context}) {
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
 
                     decoration: BoxDecoration(
-                      // color: Colors.redAccent,
-                      color: Theme.of(context).primaryColorDark,
+                      color: Colors.redAccent,
                       borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(11),
                       ),
                     ),
                     child: Column(
-                      spacing: 6,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
@@ -114,7 +109,7 @@ Widget bookingCard({required Size size, required BuildContext context}) {
                                 Icon(Icons.star, size: 16, color: Colors.white),
                           ),
                         ),
-                        // SizedBox(height: 4),
+                        SizedBox(height: 4),
                         Text(
                           "(512 Reviews)",
                           style: TextStyle(color: Colors.white, fontSize: 12),

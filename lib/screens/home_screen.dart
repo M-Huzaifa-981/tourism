@@ -1,19 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/screens/around_me_screen.dart';
-import 'package:tourism/screens/feature_resorts_screen.dart';
-import 'package:tourism/utils/themes/themes.dart';
+import '../utils/app_packages.dart';
 
-import '../generated/assets.dart';
-import '../models/imageCardInfo.dart';
-import '../utils/clippers/home_clipper.dart';
-import '../utils/constants/app_colors.dart';
-import '../utils/customWidgets/buttons/discover_button.dart';
-import '../utils/customWidgets/cards/booking_card.dart';
-import '../utils/customWidgets/cards/imageInfoCard.dart';
-import 'discover_screen.dart';
-import 'editor_pick_screen.dart';
-import 'favorite_resort_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -356,7 +342,7 @@ class HomeScreen extends StatelessWidget {
         width: size.width / 1.5,
         height: size.width / 1.2,
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColorDark,
+          color: Theme.of(context).primaryColorLight,
           borderRadius: BorderRadius.circular(11),
         ),
         child: Column(
@@ -366,7 +352,7 @@ class HomeScreen extends StatelessWidget {
               flex: 2,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadiusGeometry.circular(12),
+                  borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
                     image: AssetImage("assets/images/img$index.jpg"),
                     fit: BoxFit.cover,

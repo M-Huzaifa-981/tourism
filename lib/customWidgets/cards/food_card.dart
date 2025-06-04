@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/app_colors.dart';
 
 class FoodCard extends StatelessWidget {
   const FoodCard({required this.image, super.key, required this.onTap});

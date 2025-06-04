@@ -1,10 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:tourism/generated/assets.dart';
-import 'package:tourism/utils/constants/app_colors.dart';
-import 'package:tourism/utils/customWidgets/cards/booking_card.dart';
+import '../utils/app_packages.dart';
+
 
 class AroundMeScreen extends StatefulWidget {
   const AroundMeScreen({super.key});

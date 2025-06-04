@@ -1,14 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:tourism/generated/assets.dart';
-import 'package:tourism/models/imageCardInfo.dart';
-import 'package:tourism/utils/constants/app_colors.dart';
-import 'package:tourism/utils/themes/themes.dart';
+import '../utils/app_packages.dart';
 
-import '../utils/clippers/endborder_clipper.dart';
-import '../utils/customWidgets/cards/imageInfoCard.dart';
+
 
 class RestaurantMenuScreen extends StatelessWidget {
-  RestaurantMenuScreen({super.key});
+  const RestaurantMenuScreen({super.key});
 
   static final String imagePath = "assets/images";
 

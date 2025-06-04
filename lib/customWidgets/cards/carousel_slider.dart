@@ -1,9 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:tourism/utils/themes/themes.dart';
-
-import '../../clippers/home_clipper.dart';
-import '../../constants/app_colors.dart';
+import '../../utils/constants/app_colors.dart';
+import '../clippers/home_clipper.dart';
 
 Widget myCarouselSlider({
   required Size size,

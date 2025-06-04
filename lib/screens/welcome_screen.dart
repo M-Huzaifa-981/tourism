@@ -1,13 +1,5 @@
-import 'package:avatar_glow/avatar_glow.dart';
-import 'package:concentric_transition/page_view.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/utils/constants/app_colors.dart';
-import 'package:tourism/utils/constants/strings.dart';
+import '../utils/app_packages.dart';
 
-import '../main_nav.dart';
-import '../models/onboardmodel.dart';
-import 'onboardingscreen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});

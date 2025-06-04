@@ -1,10 +1,6 @@
-import 'package:badges/badges.dart' as badges;
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/screens/restaurant_menu_screen.dart';
+import '../../utils/app_packages.dart';
+import '../../utils/app_packages.dart' as badges;
 
-import '../../generated/assets.dart';
-import '../../utils/customWidgets/cards/feed_card.dart';
 
 class ThingsToDoTab extends StatelessWidget {
   const ThingsToDoTab({super.key});

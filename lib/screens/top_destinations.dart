@@ -1,12 +1,5 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tourism/screens/customers_gallery.dart';
-import 'package:tourism/screens/top_destinations_details_screen.dart';
-import 'package:tourism/utils/customWidgets/buttons/discover_button.dart';
-import 'package:tourism/utils/customWidgets/cards/carousel.dart';
+import '../utils/app_packages.dart';
 
-import '../generated/assets.dart';
 
 class TopDestinationsScreen extends StatelessWidget {
   const TopDestinationsScreen({super.key});
