@@ -17,8 +17,9 @@ class TopDestinationsScreen extends StatelessWidget {
         // height: height,
         // color: Colors.black.withValues(alpha: 0),
         child: ListView(
-          dragStartBehavior: DragStartBehavior.start,
-          clipBehavior: Clip.antiAlias,
+          cacheExtent: 110,
+          // dragStartBehavior: DragStartBehavior.start,
+          // clipBehavior: Clip.antiAlias,
           children: [
             Column(
               spacing: 10,
@@ -27,7 +28,7 @@ class TopDestinationsScreen extends StatelessWidget {
                 myCarouselSlider(
                   size: Size(width, height),
                   imageList: Assets.resortImages,
-                  coverImage: Assets.resort3,
+                  coverImage: Assets.resort5,
                 ),
                 Container(
                   padding: EdgeInsets.all(11),

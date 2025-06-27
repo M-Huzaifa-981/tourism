@@ -42,7 +42,7 @@ class AllResortsScreen extends StatelessWidget {
                         child: Text(
                           "All Resorts",
                           style: TextStyle(
-                            color: Theme.of(context).cardColor,
+                            color: Theme.of(context).primaryColor,
                             fontSize: 33,
                             fontWeight: FontWeight.w500,
                           ),
@@ -62,7 +62,7 @@ class AllResortsScreen extends StatelessWidget {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.green.withValues(
-                              alpha: 0.6,
+                              alpha:1,
                             ), // Button background
                             foregroundColor: Colors.white, // Text/Icon color
                             shape: RoundedRectangleBorder(
@@ -96,7 +96,7 @@ class AllResortsScreen extends StatelessWidget {
                         width: width / 1.1,
                         padding: EdgeInsets.symmetric(horizontal: 7),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColorDark,
+                          color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.circular(11),
                         ),
                         child: Row(
@@ -106,6 +106,7 @@ class AllResortsScreen extends StatelessWidget {
                                 decoration: InputDecoration(
                                   labelText: "Enter your keywords",
                                   border: InputBorder.none,
+                                  labelStyle: TextStyle(color: Colors.white)
                                 ),
                               ),
                             ),
@@ -142,6 +143,7 @@ class AllResortsScreen extends StatelessWidget {
                     child: Card(
                       margin: EdgeInsets.all(5),
                       child: ListTile(
+                        tileColor: Theme.of(context).primaryColorLight,
                         contentPadding: EdgeInsets.symmetric(horizontal: 7),
                         leading: Container(
                           width: 66,

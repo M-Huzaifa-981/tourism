@@ -7,47 +7,50 @@ import '../../../models/imageCardInfo.dart';
 Widget imageInfoCard({
   required ImageCardInfo imageCardInfo,
   required Size imageSize,
-  double headingSize = 7,
+  double headingSize = 15,
   double titleSize = 5,
   double subTitleSize = 5,
   double borderRadius = 0,
   CrossAxisAlignment infoAlign = CrossAxisAlignment.start,
   bool isShowCardInfo = false,
   VoidCallback? onTap,
-  required LinearGradient linearGradient,
+   LinearGradient? linearGradient,
 }) {
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: Column(
-      crossAxisAlignment: infoAlign,
-      children: [
-        Container(
-          width: imageSize.width,
-          height: imageSize.height,
+  return Column(
+    crossAxisAlignment: infoAlign,
+    children: [
+      Container(
+        width: imageSize.width,
+        height: imageSize.height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(borderRadius),
+          image: DecorationImage(
+            image: ResizeImage(
+              AssetImage(imageCardInfo.image),
+              width: 300,
+              height: 200,
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(borderRadius),
-            image: DecorationImage(
-              image: AssetImage(imageCardInfo.image),
-              fit: BoxFit.cover,
-            ),
+            gradient: linearGradient,
+            color: Colors.lightBlueAccent.withValues(alpha: 0.3)
           ),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(borderRadius),
-              gradient: linearGradient,
-            ),
-            padding: EdgeInsets.all(12),
-            alignment: Alignment.bottomLeft,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-                if (imageCardInfo.heading != null)
-                  Row(
+          padding: EdgeInsets.all(12),
+          alignment: Alignment.bottomLeft,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (imageCardInfo.heading != null)
+                Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                      Text(
+                    Expanded(
+                      child: Text(
                         imageCardInfo.heading ?? "",
                         overflow: TextOverflow.fade,
                         maxLines: 1,
@@ -58,14 +61,15 @@ Widget imageInfoCard({
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                    ),
                   ],
                 ),
 
-                if (imageCardInfo.subtitle != null)
-                  Row(
+              if (imageCardInfo.subtitle != null)
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                      Expanded(
+                    Expanded(
                       child: Text(
                         imageCardInfo.subtitle ?? "",
                         overflow: TextOverflow.fade,
@@ -84,26 +88,34 @@ Widget imageInfoCard({
                         child: Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.white,
-                          size: subTitleSize+5,
+                          size: subTitleSize + 5,
                         ),
                       ),
                   ],
                 ),
-
-              ],
-            ),
+            ],
           ),
         ),
-        if (isShowCardInfo)
-          Container(
+      ),
+      // if (isShowCardInfo)
+        Visibility(
+          visible: isShowCardInfo,
+          child: Container(
             padding: EdgeInsets.symmetric(vertical: 5),
             child: Column(
+              // spacing: 4,
               crossAxisAlignment: infoAlign,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: List.generate(4, (i)=> Icon(Icons.star_border, color: AppColors.darkOrangeColor,)),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    4,
+                    (i) => Icon(
+                      Icons.star_border,
+                      color: AppColors.darkOrangeColor,
+                    ),
+                  ),
                 ),
                 Text(
                   "4.8 (512 Reviews)",
@@ -113,7 +125,7 @@ Widget imageInfoCard({
               ],
             ),
           ),
-      ],
-    ),
+        ),
+    ],
   );
 }

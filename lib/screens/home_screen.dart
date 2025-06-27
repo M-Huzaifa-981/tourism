@@ -1,6 +1,5 @@
 import '../utils/app_packages.dart';
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -10,13 +9,16 @@ class HomeScreen extends StatelessWidget {
     double width = size.width;
 
     return Material(
-      child: Material(
-        child: Container(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          child: SingleChildScrollView(
-            child: Column(
+      child: Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: ListView(
+          cacheExtent: 150,
+          padding: EdgeInsets.zero,
+          children: [
+            Column(
               children: [
                 Container(
+                  // color: Colors.amber,
                   height: width / 1.3,
                   child: Stack(
                     children: [
@@ -36,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                                 // MyCustomThemes.light_green2,
                                 // MyCustomThemes.light_green1,
                                 Theme.of(context).primaryColorLight,
-                                Theme.of(context).primaryColorDark
+                                Theme.of(context).primaryColorDark,
                               ],
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
@@ -72,7 +74,9 @@ class HomeScreen extends StatelessWidget {
                               width: width / 1.2,
                               padding: EdgeInsets.symmetric(horizontal: 7),
                               decoration: BoxDecoration(
-                                color: Theme.of(context).cardColor.withValues(alpha: 0.5),
+                                color: Theme.of(
+                                  context,
+                                ).primaryColor.withValues(alpha: 0.7),
                                 borderRadius: BorderRadius.circular(11),
                               ),
                               child: Row(
@@ -88,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-        
+
                                   InkWell(
                                     borderRadius: BorderRadius.circular(50),
                                     onTap: () {
@@ -100,14 +104,14 @@ class HomeScreen extends StatelessWidget {
                                       // color: Colors.green,
                                       child: Icon(
                                         Icons.search,
-                                        color: Theme.of(context).primaryColor,
+                                        color: Colors.white,
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-        
+
                             // SizedBox(height: 15,)
                           ],
                         ),
@@ -115,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-        
+
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 9),
                   child: Column(
@@ -138,28 +142,24 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-        
+
                       bookingCard(size: size, context: context),
-        
-        
+
                       SizedBox(height: 22),
-        
-                      Row(
-                        children: [
-                          Expanded(
-                            child: discoverButton(
-                              btnText: 'Discover More',
-                              context: context,
-                              onTap: () {
-                                Get.to(DiscoverScreen());
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-        
+
+                      Container(
+                        width: width,
+                        height: 55,
+                        child: discoverButton(
+                        btnText: 'Discover More',
+                        context: context,
+                        onTap: () {
+                          Get.to(DiscoverScreen());
+                        },
+                      ),),
+
                       SizedBox(height: 22),
-        
+
                       Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -175,7 +175,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-        
+
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
@@ -183,8 +183,9 @@ class HomeScreen extends StatelessWidget {
                                   final cardData = ImageCardInfo(
                                     image: Assets.restaurantsImage[index],
                                     title: "EDITORS PICKS",
+                                    // heading: 'heading'
                                   );
-        
+
                                   return Container(
                                     margin: EdgeInsets.all(5),
                                     child: InkWell(
@@ -200,16 +201,18 @@ class HomeScreen extends StatelessWidget {
                                       },
                                       child: imageInfoCard(
                                         imageCardInfo: cardData,
-                                        imageSize: Size(155, 233),
+                                        imageSize: Size(150, 220),
                                         titleSize: 11,
-                                        linearGradient: LinearGradient(
-                                          colors: [
-                                            Colors.transparent,
-                                            Colors.lightBlueAccent.withValues(alpha: 0.5),
-                                          ],
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                        ),
+                                        // linearGradient: LinearGradient(
+                                        //   colors: [
+                                        //     Colors.transparent,
+                                        //     Colors.lightBlueAccent.withValues(
+                                        //       alpha: 0.5,
+                                        //     ),
+                                        //   ],
+                                        //   begin: Alignment.topCenter,
+                                        //   end: Alignment.bottomCenter,
+                                        // ),
                                         isShowCardInfo: true,
                                         borderRadius: 11,
                                       ),
@@ -221,11 +224,11 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-        
+
                       SizedBox(height: 33),
                       Divider(height: 2),
                       SizedBox(height: 33),
-        
+
                       Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,25 +244,28 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-        
+
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
                                 children: List.generate(5, (index) {
-                                  return GestureDetector(onTap: (){
-                                    Get.to(AroundMeScreen());
-                                  }, child: nearRestCard(size, index, context));
+                                  return GestureDetector(
+                                    onTap: () {
+                                      Get.to(AroundMeScreen());
+                                    },
+                                    child: nearRestCard(size, index, context),
+                                  );
                                 }),
                               ),
                             ),
                           ],
                         ),
                       ),
-        
+
                       SizedBox(height: 33),
                       Divider(height: 2),
                       SizedBox(height: 33),
-        
+
                       Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -275,7 +281,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-        
+
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
@@ -284,7 +290,7 @@ class HomeScreen extends StatelessWidget {
                                     image: "assets/images/img$index.jpg",
                                     title: "AUTHOR'S CHOICE MONTHLY",
                                   );
-        
+
                                   return Container(
                                     margin: EdgeInsets.all(5),
                                     child: InkWell(
@@ -322,14 +328,14 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-        
+
                       SizedBox(height: 33),
                     ],
                   ),
                 ),
               ],
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -342,7 +348,7 @@ class HomeScreen extends StatelessWidget {
         width: size.width / 1.5,
         height: size.width / 1.2,
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColorLight,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(11),
         ),
         child: Column(
@@ -374,8 +380,8 @@ class HomeScreen extends StatelessWidget {
                     Text("127 Ledbury Road, London W11 2AQ"),
                     Divider(),
                     Text("There are more than 25k people"),
-                    Text("recommend this.", style: TextStyle(fontSize: 12),),
-                    SizedBox(height: 10,)
+                    Text("recommend this.", style: TextStyle(fontSize: 12)),
+                    SizedBox(height: 10),
                   ],
                 ),
               ),

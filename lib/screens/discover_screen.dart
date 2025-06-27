@@ -42,6 +42,7 @@ class DiscoverScreen extends StatelessWidget {
             AppBar(
               centerTitle: true,
               title: Text("Discover"),
+              forceMaterialTransparency: true,
               // leading: IconButton(
               //   onPressed: () {
               //     Navigator.pop(context);

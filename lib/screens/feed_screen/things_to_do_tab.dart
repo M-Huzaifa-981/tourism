@@ -1,7 +1,6 @@
 import '../../utils/app_packages.dart';
 import '../../utils/app_packages.dart' as badges;
 
-
 class ThingsToDoTab extends StatelessWidget {
   const ThingsToDoTab({super.key});
 
@@ -18,6 +17,11 @@ class ThingsToDoTab extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child:
+            // myCustomFeedCard(
+            //   image: Assets.resortImages[index],
+            //   size: Size(width, height),
+            //   context: context,
+            // ),
             // FeedCard(),
             feedCard(
               context: context,

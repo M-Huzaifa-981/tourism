@@ -1,5 +1,5 @@
-class MyStrings {
-  MyStrings._();
+class AppTexts {
+  AppTexts._();
 
   static const List<String> flightNames = [
     'Islamabad ➝ Skardu',
@@ -38,6 +38,17 @@ class MyStrings {
     'Continental Hotel',
     'Burj al Arab Hotel',
     'Radisson Hotel',
+  ];
+
+  static const List<String> restaurantNames = [
+    'Fork & Flame',
+    'The Golden Skillet',
+    'Spice Boulevard',
+    'Urban Harvest',
+    'Tandoor Tales',
+    'The Hungry Nomad',
+    'Saffron & Stone',
+    'Crave Corner',
   ];
 
   static const List<String> recepie = [

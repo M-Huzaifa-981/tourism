@@ -1,48 +1,49 @@
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tourism/screens/booking_home.dart';
+import 'package:tourism/screens/booking_screen.dart';
+
 import '../utils/app_packages.dart';
 
+final indexProvider = StateProvider<int>((ref) => 0);
 
-class MainNav extends StatefulWidget {
-  const MainNav({super.key});
+class MainNav extends ConsumerWidget {
+  MainNav({super.key});
 
-  @override
-  State<MainNav> createState() => _MainNavState();
-}
-
-class _MainNavState extends State<MainNav> {
   // final PageController _pageController = PageController();
-  int _currentIndex = 0;
+  final int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    HomeScreen(),
-    TrendingResortsScreen(),
-    FeedScreen(),
-    EditorPickScreen(),
-    TopDestinationsScreen(),
+    const HomeScreen(),
+    const TrendingHotelsScreen(),
+    const FeedScreen(),
+    const EditorPickScreen(),
+    const BookingHomeScreen()
+    // const TopDestinationsScreen(),
   ];
 
   navigateToScreen(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
+
+
   }
 
   // @override
-  // void dispose() {
-  //   _pageController.dispose();
-  //   super.dispose();
-  // }
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final indexVariable = ref.watch(indexProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: IndexedStack(clipBehavior: Clip.antiAlias,  index: _currentIndex, children: _screens),
+      body: IndexedStack(
+        index: indexVariable,
+        children: _screens,
+        clipBehavior: Clip.none,
+      ),
       bottomNavigationBar: ConvexAppBar(
-        key: ValueKey(_currentIndex),
+        // key: ValueKey(_currentIndex),
         initialActiveIndex: _currentIndex,
-        backgroundColor: Theme.of(context).primaryColorDark,
-        top: -8,
-        curveSize: 33,
+        backgroundColor: Theme.of(context).primaryColorLight,
+        top: -7,
+        curveSize: 44,
         activeColor: Colors.white,
         disableDefaultTabController: true,
         items: const [
@@ -50,9 +51,11 @@ class _MainNavState extends State<MainNav> {
           TabItem(icon: Icons.hotel, title: 'Hotel'),
           TabItem(icon: Icons.feed_rounded, title: 'Feed'),
           TabItem(icon: Icons.photo_album_outlined, title: 'Editors'),
-          TabItem(icon: Icons.beach_access_rounded, title: 'Resorts'),
+          TabItem(icon: Icons.airplane_ticket_rounded, title: 'Booking'),
         ],
-        onTap: navigateToScreen,
+        onTap: (int index){
+          ref.read(indexProvider.notifier).state = index;
+        },
       ),
     );
   }

@@ -1,6 +1,4 @@
-
 import '../utils/app_packages.dart';
-
 
 class CustomersGallery extends StatelessWidget {
   CustomersGallery({super.key});
@@ -17,6 +15,7 @@ class CustomersGallery extends StatelessWidget {
       appBar: AppBar(
         // backgroundColor: Colors.grey.withValues(alpha: 0.1),
         // centerTitle: true,
+        forceMaterialTransparency: true,
         title: Text("Gallery"),
         leading: IconButton(
           onPressed: () {
@@ -35,7 +34,7 @@ class CustomersGallery extends StatelessWidget {
               child: Text(
                 "Customer's Gallery",
                 style: TextStyle(
-                  color: Theme.of(context).cardColor,
+                  color: Theme.of(context).primaryColor,
                   fontSize: 33,
                   fontWeight: FontWeight.w500,
                 ),

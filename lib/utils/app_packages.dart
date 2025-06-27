@@ -33,7 +33,7 @@ export '../generated/assets.dart';
 // utils
 export '../utils/constants/app_colors.dart';
 export '../utils/constants/app_fonts.dart';
-export '../utils/constants/strings.dart';
+export '../utils/constants/app_texts.dart';
 export '../utils/themes/themes.dart';
 
 // custom widgets
@@ -44,7 +44,7 @@ export '../customWidgets/cards/gallery_card.dart';
 export '../customWidgets/cards/imageInfoCard.dart';
 export '../customWidgets/cards/trending_card.dart';
 export '../customWidgets/cards/carousel_slider.dart';
-export '../customWidgets/cards/food_card.dart';
+export '../customWidgets/cards/food_cards.dart';
 // clipper
 export '../customWidgets/clippers/endborder_clipper.dart';
 export '../customWidgets/clippers/home_clipper.dart';
@@ -56,7 +56,7 @@ export '../screens/all_resorts_screen.dart';
 export '../screens/customers_gallery.dart';
 export '../screens/discover_screen.dart';
 export '../screens/editor_pick_screen.dart';
-export '../screens/favorite_resort_screen.dart';
+// export '../screens/favorite_resort_screen.dart';
 export '../screens/feature_resorts_screen.dart';
 export '../screens/feed_screen.dart';
 export '../screens/home_screen.dart';

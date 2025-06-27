@@ -36,6 +36,7 @@ class TopDestinationsDetailScreen extends StatelessWidget {
                       AppBar(
                         title: Text('Resorts'),
                         centerTitle: true,
+                        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
                         // backgroundColor: Colors.white60,
                       ),
                       Spacer(flex: 10),

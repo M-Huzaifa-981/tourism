@@ -13,24 +13,24 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   final List<OnBoardingModel> data = [
     OnBoardingModel(
-      title: MyStrings.OnBoardTitle1,
-      subTitle: MyStrings.OnBoardSubtitle1,
+      title: AppTexts.OnBoardTitle1,
+      subTitle: AppTexts.OnBoardSubtitle1,
       image: AssetImage('assets/onboarding/on1.png'),
       backgroundColor: AppColors.normalGreenColor,
       titleColor: Colors.white,
       subTitleColor: Colors.black,
     ),
     OnBoardingModel(
-      title: MyStrings.OnBoardTitle2,
-      subTitle: MyStrings.OnBoardSubtitle2,
+      title: AppTexts.OnBoardTitle2,
+      subTitle: AppTexts.OnBoardSubtitle2,
       image: AssetImage('assets/onboarding/on2.png'),
       backgroundColor: AppColors.lightGreenColor.withValues(red: 10, blue: 5),
       titleColor: Colors.black45,
       subTitleColor: Colors.black,
     ),
     OnBoardingModel(
-      title: MyStrings.OnBoardTitle3,
-      subTitle: MyStrings.OnBoardSubtitle3,
+      title: AppTexts.OnBoardTitle3,
+      subTitle: AppTexts.OnBoardSubtitle3,
       image: AssetImage('assets/onboarding/on3.png'),
       backgroundColor: AppColors.darkGreenColor.withValues(red: 3, blue: 5),
       titleColor: Colors.black54,

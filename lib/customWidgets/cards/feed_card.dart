@@ -1,23 +1,28 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_image_stack/flutter_image_stack.dart';
+import 'package:tourism/utils/app_packages.dart';
+
+import '../../generated/assets.dart';
 
 Widget feedCard({
   required Size size,
   required String image,
   required List<String> hashtags,
-  required badges.BadgePosition badgePosition, required BuildContext context, required VoidCallback onTap,
+  required badges.BadgePosition badgePosition,
+  required BuildContext context,
+  required VoidCallback onTap,
 }) {
   double width = size.width;
   double height = size.height;
 
-  return  Container(
+  return Container(
     width: width,
     height: height,
     margin: EdgeInsets.only(bottom: 15),
     child: Column(
       children: [
-        SizedBox(height: 11),
+        SizedBox(height: 1),
 
         Container(
           alignment: Alignment.centerLeft,
@@ -25,11 +30,9 @@ Widget feedCard({
           child: Text(
             hashtags.join(', '),
             style: TextStyle(
-              color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
-
           ),
         ),
 
@@ -49,8 +52,6 @@ Widget feedCard({
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
-
                 Expanded(
                   child: badges.Badge(
                     position: badgePosition,
@@ -61,7 +62,7 @@ Widget feedCard({
                     ),
                     badgeStyle: badges.BadgeStyle(
                       shape: badges.BadgeShape.circle,
-                      badgeColor: Colors.redAccent,
+                      badgeColor: Theme.of(context).primaryColor,
                       elevation: 4,
                       padding: EdgeInsets.all(8),
                     ),
@@ -69,34 +70,44 @@ Widget feedCard({
                       width: width,
                       // height: height * 0.3,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(11)),
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(11),
+                        ),
                         // color: Colors.amber,
-                        image: DecorationImage(image: AssetImage(image),
-                            fit: BoxFit.cover),
+                        image: DecorationImage(
+                          image: AssetImage(image),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
                 ),
 
-
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 15,
+                  ),
                   child: Text(
-                        'Pakistan\'s Best Foodie Cities',
-                        style: TextStyle(
-                          fontSize: 27,
-                          color: Color(0XFF39c8a5),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    'Pakistan\'s Best Foodie Cities',
+                    style: TextStyle(
+                      fontSize: 27,
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
 
-
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 11,
+                  ),
                   decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(11))
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(11),
+                    ),
                   ),
                   child: Row(
                     children: [
@@ -105,9 +116,11 @@ Widget feedCard({
                         itemRadius: 44,
                         totalCount: 5,
                         providers: [
-                          ...List.generate(5, (index){
-                            return ExactAssetImage('assets/images/img$index.jpg');
-                          })
+                          ...List.generate(5, (index) {
+                            return ExactAssetImage(
+                              'assets/images/img$index.jpg',
+                            );
+                          }),
                         ],
                       ),
                       SizedBox(width: 6),
@@ -127,108 +140,88 @@ Widget feedCard({
             ),
           ),
         ),
-
       ],
     ),
   );
 }
 
-
-// class FeedCard extends StatelessWidget {
-//   const FeedCard({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       spacing: 7,
-//       children: [
-//         // SizedBox(height: 10,),
-//         Text(
-//           '#food #restaurant #guests #tour',
-//           style: TextStyle(
-//             color: Colors.white,
-//             fontSize: 17,
-//             fontWeight: FontWeight.bold,
-//           ),
-//         ),
-//         Container(
-//           height: MediaQuery.of(context).size.height * 0.55,
-//           decoration: BoxDecoration(
-//             color: Colors.white,
-//             borderRadius: BorderRadius.circular(20),
-//           ),
-//           child: Stack(
-//             children: [
-//               ClipRRect(
-//                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-//                 child: Image(image: AssetImage('assets/images/img8.jpg')),
-//               ),
-//               Align(
-//                 alignment: Alignment(0.8, 0.3),
-//                 child: Container(
-//                   height: 70,
-//                   width: 70,
-//                   decoration: BoxDecoration(
-//                     color: Colors.red,
-//                     borderRadius: BorderRadius.circular(50),
-//                   ),
-//                   child: Icon(Icons.favorite, size: 35, color: Colors.white),
-//                 ),
-//               ),
-//               Align(
-//                 alignment: Alignment(0, 0.75),
-//                 child: Padding(
-//                   padding: const EdgeInsets.all(8.0),
-//                   child: Text(
-//                     'Pakistan\'s Best Foodie Cities',
-//                     style: TextStyle(
-//                       fontSize: 40,
-//                       color: Color(0XFF39c8a5),
-//                       fontWeight: FontWeight.bold,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//               Align(
-//                 alignment: Alignment(0, 1),
-//                 child: Container(
-//                   padding: EdgeInsets.symmetric(vertical: 9),
-//                   decoration: BoxDecoration(
-//                     color: Colors.black12,
-//                     borderRadius: BorderRadius.vertical(
-//                       bottom: Radius.circular(20),
-//                     ),
-//                   ),
-//                   child: Row(
-//                     spacing: 8,
-//                     children: [
-//                       FlutterImageStack.providers(
-//                         itemRadius: 50,
-//                         providers: [
-//                           ExactAssetImage('assets/images/img1.jpg'),
-//                           ExactAssetImage('assets/images/img1.jpg'),
-//                           ExactAssetImage('assets/images/img1.jpg'),
-//                         ],
-//                         totalCount: 4,
-//                       ),
-//
-//                       Text(
-//                         '3,123 loved this !',
-//                         style: TextStyle(
-//                           fontWeight: FontWeight.bold,
-//                           fontSize: 20,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//         SizedBox(height: 10),
-//       ],
-//     );
-//   }
-// }
+Widget myCustomFeedCard({
+  required String image,
+  required Size size,
+  required BuildContext context,
+}) {
+  double width = size.width;
+  double height = size.height;
+  return Container(
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+    margin: EdgeInsets.only(bottom: 15),
+    width: width,
+    height: height,
+    child: Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            spreadRadius: 1,
+            blurRadius: 20,
+            offset: Offset(5, 16),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Expanded(
+            child: badges.Badge(
+              position: BadgePosition.bottomEnd(bottom: -20, end: 15),
+              badgeContent: Icon(Icons.favorite),
+              badgeStyle: badges.BadgeStyle(
+                borderRadius: BorderRadius.circular(50),
+                padding: EdgeInsetsGeometry.all(10),
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                  image: DecorationImage(
+                    image: AssetImage(Assets.restaurantImage),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsetsGeometry.all(10),
+            // decoration: BoxDecoration(color: Colors.white),
+            child: Text(
+              'Pakistan best food restaurant',
+              style: TextStyle(color: Colors.green, fontSize: 30),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+            ),
+            padding: EdgeInsetsGeometry.all(10),
+            child: Row(
+              children: [
+                FlutterImageStack.providers(
+                  providers: [
+                    ...List.generate(
+                      3,
+                      (index) => ExactAssetImage(Assets.profileImage[index]),
+                    ),
+                  ],
+                  itemRadius: 40,
+                  totalCount: Assets.profileImage.length,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}

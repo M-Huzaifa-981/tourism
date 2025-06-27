@@ -145,7 +145,7 @@ class FoodDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               ...List.generate(
-                                MyStrings.recepie.length,
+                                AppTexts.recepie.length,
                                 (index) => ListTile(
                                   leading: CircleAvatar(
                                     radius: 25,
@@ -153,7 +153,7 @@ class FoodDetailsScreen extends StatelessWidget {
                                       Assets.foodImages[index],
                                     ),
                                   ),
-                                  title: Text(MyStrings.recepie[index]),
+                                  title: Text(AppTexts.recepie[index]),
                                   subtitle: Text('100 mg'),
                                 ),
                               ),

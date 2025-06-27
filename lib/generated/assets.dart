@@ -39,15 +39,15 @@ class Assets {
   });
 
 
-  static const String foodImg0 = 'assets/foods/food_img0.jpeg';
-  static const String foodImg1 = 'assets/foods/food_img1.jpeg';
-  static const String foodImg2 = 'assets/foods/food_img2.jpeg';
-  static const String foodImg3 = 'assets/foods/food_img3.jpeg';
-  static const String foodImg4 = 'assets/foods/food_img4.jpeg';
-  static const String foodImg5 = 'assets/foods/food_img5.jpeg';
-  static const String foodImg6 = 'assets/foods/food_img6.jpeg';
+  // static const String foodImg0 = 'assets/foods/food_img0.jpeg';
+  // static const String foodImg1 = 'assets/foods/food_img1.jpeg';
+  // static const String foodImg2 = 'assets/foods/food_img2.jpeg';
+  // static const String foodImg3 = 'assets/foods/food_img3.jpeg';
+  // static const String foodImg4 = 'assets/foods/food_img4.jpeg';
+  // static const String foodImg5 = 'assets/foods/food_img5.jpeg';
+  // static const String foodImg6 = 'assets/foods/food_img6.jpeg';
   static const String foodImg7 = 'assets/foods/food_img7.jpeg';
-  static const String foodImg8 = 'assets/foods/food_img8.jpeg';
+  // static const String foodImg8 = 'assets/foods/food_img8.jpeg';
 
 
   static const String assetsPic0 = 'assets/images/img0.jpg';

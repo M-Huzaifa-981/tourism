@@ -6,12 +6,17 @@ class HotelsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return PageView.builder(
-      itemCount: MyStrings.resortTitles.length,
+      itemCount: AppTexts.resortTitles.length,
       scrollDirection: Axis.vertical,
       itemBuilder: (context, index) {
-        return TrendingCard(
-          titleText: MyStrings.resortTitles[index],
+        return myCustomTrendCard(
+          context: context,
+          size: Size(width, height),
+          titleText: AppTexts.resortTitles[index],
           image: Assets.myRestaurantsImages[index],
           onTap: () {
             ScaffoldMessenger.of(

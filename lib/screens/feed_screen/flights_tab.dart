@@ -6,12 +6,17 @@ class FlightsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    double width = size.width;
+    double height = size.height;
     return PageView.builder(
       scrollDirection: Axis.vertical,
       itemCount: 5,
       itemBuilder: (context, index) {
-        return TrendingCard(
-          titleText: MyStrings.flightNames[index],
+        return myCustomTrendCard(
+          context: context,
+          size: Size(width, height),
+          titleText: AppTexts.flightNames[index],
           image: Assets.flightImages[index],
           onTap: (){
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Flights Tapped')));

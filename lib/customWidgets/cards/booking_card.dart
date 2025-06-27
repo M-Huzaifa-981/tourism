@@ -94,7 +94,7 @@ Widget bookingCard({required Size size, required BuildContext context}) {
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
 
                     decoration: BoxDecoration(
-                      color: Colors.redAccent,
+                      color: Colors.deepOrange,
                       borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(11),
                       ),
