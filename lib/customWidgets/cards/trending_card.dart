@@ -281,7 +281,7 @@ Widget myCustomTrendCard({
         boxShadow: [
           BoxShadow(
             color: Colors.black26,
-            spreadRadius: 1,
+            spreadRadius: 2,
             blurRadius: 10,
             offset: Offset(3, 8),
           ),

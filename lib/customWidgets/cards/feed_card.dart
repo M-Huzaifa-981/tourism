@@ -40,12 +40,13 @@ Widget feedCard({
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Colors.white,
+              color: Theme.of(context).scaffoldBackgroundColor,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 6,
-                  offset: Offset(0, 2),
+                  color: Theme.of(context).primaryColorLight,
+                  spreadRadius: 2,
+                  blurRadius: 10,
+                  offset: Offset(2, 4),
                 ),
               ],
             ),
@@ -104,7 +105,7 @@ Widget feedCard({
                     vertical: 11,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade200,
+                    color: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.vertical(
                       bottom: Radius.circular(11),
                     ),
@@ -130,7 +131,7 @@ Widget feedCard({
                         '3,123 loved this',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color: Colors.black87,
+                          // color: Colors.black87,
                         ),
                       ),
                     ],

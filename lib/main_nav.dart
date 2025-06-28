@@ -41,7 +41,7 @@ class MainNav extends ConsumerWidget {
       bottomNavigationBar: ConvexAppBar(
         // key: ValueKey(_currentIndex),
         initialActiveIndex: _currentIndex,
-        backgroundColor: Theme.of(context).primaryColorLight,
+        backgroundColor: MyCustomThemes.dark_green1,
         top: -7,
         curveSize: 44,
         activeColor: Colors.white,
